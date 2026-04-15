@@ -1,34 +1,15 @@
-import {motion } from "framer-motion";
-
 function Hero() {
-    return (
-    <motion.div
-        className = "hero"
-        initail = {{ opacity: 0, y: 50 }}
-        animate = {{ opacity: 1, y: 0 }}
-        transition = {{ duration: 1 }}
-    >
-        <motion.h1
-            initial = {{opacity: 0 }}
-            animate = {{ opacity: 1 }}
-            transition = {{ duration : 1 }}
-        >
-            Welcome to the College of Industrial Technology
-        </motion.h1>
+  return (
+    <div className="hero">
+        <h1>Produce technologically competitive graduates by providing capability build-up responsive to the needs of industry.</h1>
+        <h1>Achieve quality instruction, research, extension and production through appropriate continuing faculty development programs in Industrial Technology and Computer Technology.</h1>
+        <p>Building better future, with innovation and excellence</p>
 
-        <p>Building better future, with innovation and excellence.</p>
-
-        <a href="#courses">
-            <motion.button
-                whilehover = {{ scale: 1.1 }}
-                whileTap = {{ scale: 0.9 }}
-                >
-                view courses
-                </motion.button>
-        </a>
-
-    </motion.div>
-    );
+      <a href="#courses">
+        <button>View Courses</button>
+      </a>
+    </div>
+  );
 }
 
 export default Hero;
