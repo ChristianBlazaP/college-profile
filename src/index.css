@@ -1,14 +1,28 @@
 body {
     margin: 0;
+    padding: 0;
     font-family: Poppins, sans-serif;
-    background:  #0f172a;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url("./assets/BG.png");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #0f172a;
     color: white;
+    min-height: 100vh;
+}
+
+html {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
 }
 
 .menu {
     display: flex;
     gap: 20px;
     list-style: none;
+    transition: all 0.3s ease;
 }
 
 .menu-icon {
@@ -18,13 +32,62 @@ body {
 }
 
 .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
-    background: rgba(0,0,0,0.6);
-    color: white;
+    padding: 15px 40px;
+    background: rgba(0,0,0,0.3);
     backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  padding: 10px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.nav-left h2 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: white;
+    white-space: nowrap;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.nav-links:hover {
+    color: #facc15;
+}
+
 
 .navbar ul {
     list-style: none;
@@ -37,17 +100,18 @@ body {
 }
 
 .hero {
-    height: 90vh;
-    background: url('./assets/BG.png') center/cover no-repeat;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgb(0, 0, 0)), url('./assets/BG.png');
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    font-style: italic;
-    animation: fadeIn 1s ease-in-out;
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+              url("/assets/BG.png") center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  margin-top: -80px;
+  padding-top: 80px;
 }
 
 .hero h1 {
@@ -67,6 +131,8 @@ body {
 }
 
 .card {
+    text-decoration: none;
+    color: white;
     background: rgba(255,255,255,0.5);
     padding: 20px;
     border-radius: 15px;
@@ -100,13 +166,17 @@ button {
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(45deg, #921616, #dace29cb);
+    background: linear-gradient(45deg, #921616, #f8eb3acb);
+    color: rgb(0, 0, 0);
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 1rem;
 }
 
 button:hover { 
-    transform: scale(1.1);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 @keyframes slideup {
@@ -127,6 +197,14 @@ html {
 /* MOBILE NAV */
 @media (max-width: 768px) {
 
+    .nav-left h2 {
+    font-size: 0.8rem;
+    }
+
+    .nav-links {
+    gap: 15px;
+    }
+    
     .hero h1 {
         font-size: 1.2rem;
     }
@@ -143,6 +221,7 @@ html {
         top: 60px;
         right: 20px;
         padding: 20px;
+        border-radius: 10px;
     }
 
     #menu-toggle:checked + .menu{
@@ -163,5 +242,115 @@ html {
 
     .navbar ul {
         display: none;
+    }
+}
+
+/* BACK BUTTON */
+.back-button {
+    background: linear-gradient(45deg, #921616, #f8eb3a) !important;
+    padding: 10px 20px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    color: white !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+    display: inline-block !important;
+    outline: none !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
+}
+
+.back-button:hover,
+.back-button:active,
+.back-button:focus {
+    transform: translateX(-5px) !important;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4) !important;
+    outline: none !important;
+}
+
+/* COURSE PAGE */
+.course-page {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url("./assets/BG.png");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(15, 23, 42, 0.95);
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+/* RESPONSIVE NAVBAR - TABLET */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 12px 20px;
+    }
+
+    .nav-left h2 {
+        font-size: 0.95rem;
+    }
+
+    .nav-links {
+        gap: 15px;
+        font-size: 0.9rem;
+    }
+
+    .logo {
+        height: 38px;
+    }
+}
+
+/* RESPONSIVE NAVBAR - MOBILE */
+@media (max-width: 640px) {
+    .navbar {
+        padding: 10px 12px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .nav-left {
+        gap: 10px;
+        width: 100%;
+    }
+
+    .nav-left h2 {
+        font-size: 0.8rem;
+        margin: 0;
+    }
+
+    .nav-links {
+        gap: 8px;
+        font-size: 0.7rem;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .nav-links a {
+        font-size: 0.7rem;
+        padding: 5px 8px;
+    }
+
+    .logo {
+        height: 32px;
+    }
+
+    .back-button {
+        padding: 8px 12px !important;
+        font-size: 0.85rem !important;
+    }
+
+    .hero h1 {
+        font-size: 1.2rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .hero button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
     }
 }

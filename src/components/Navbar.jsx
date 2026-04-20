@@ -1,17 +1,23 @@
+import citLogo from "../assets/citLOGO.png";
+
 function Navbar() {
   return (
-    <div className="navbar">
-      <h2>COLLEGE OF INDUSTRIL TECHNOLOGY</h2>
+    <header className="navbar">
 
-      <input type="checkbox" id="menu-toggle" />
-      <label htmlFor="menu-toggle" className="menu-icon">☰</label>
+      {/* LEFT SIDE */}
+      <div className="nav-left">
+        <img src={citLogo} alt="CIT Logo" className="logo" />
+        <h2>COLLEGE OF INDUSTRIAL TECHNOLOGY</h2>
+      </div>
 
-      <ul className="menu">
-        <li>Home</li>
-        <li>Courses</li>
-        <li>Faculty</li>
-      </ul>
-    </div>
+      {/* RIGHT SIDE */}
+      <nav className="nav-links">
+        <a href="/">Home</a>
+        <a href="/#courses">Courses</a>
+        <a href="/#faculty">Faculty</a>
+      </nav>
+
+    </header>
   );
 }
 
