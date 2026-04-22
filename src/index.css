@@ -102,14 +102,15 @@ html {
 .hero {
   height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
-              url("/assets/BG.png") center/cover no-repeat;
+              url("/asset/building.jpg") center/cover no-repeat;
+
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   text-align: center;
   color: white;
-  padding: 20px;
+
   margin-top: -80px;
   padding-top: 80px;
 }
@@ -122,6 +123,16 @@ html {
 .hero p {
     font-size: 1.2rem;
 }
+
+.philosophy-text {
+    font-size: 0.95rem;
+    margin-top: 20px;
+    color: #f8eb3acb;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+
 
 .grid {
   display: grid;
@@ -155,6 +166,31 @@ html {
 
 .course-section {
     padding: 20px;
+}
+
+.philosophy-section {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 40px;
+    border-radius: 15px;
+    margin: 40px 0;
+    border-left: 4px solid #f8eb3acb;
+    backdrop-filter: blur(10px);
+}
+
+.philosophy-section h3 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    color: #f8eb3acb;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.philosophy-section p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    text-align: justify;
 }
 
 .container {
@@ -282,6 +318,91 @@ html {
     padding-top: 80px;
 }
 
+/* FACULTY PAGE */
+.faculty-page {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url("./assets/BG.png");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(15, 23, 42, 0.95);
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+
+.faculty-page h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.faculty-intro {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.faculty-section {
+    margin: 50px 0;
+}
+
+.faculty-section h2 {
+    font-size: 1.8rem;
+    color: #f8eb3acb;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #f8eb3acb;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.faculty-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(248, 235, 58, 0.2);
+    border-left: 4px solid #f8eb3acb;
+    padding: 25px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.faculty-card:hover {
+    transform: translateY(-5px);
+    border-left-color: #ffffff;
+    box-shadow: 0 12px 40px rgba(248, 235, 58, 0.2);
+}
+
+.faculty-card h3 {
+    font-size: 1.2rem;
+    color: white;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.faculty-role {
+    font-size: 1rem;
+    color: #f8eb3acb;
+    font-weight: 500;
+    margin: 5px 0;
+}
+
+.faculty-department {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 5px 0 0 0;
+    font-style: italic;
+}
+
 /* RESPONSIVE NAVBAR - TABLET */
 @media (max-width: 1024px) {
     .navbar {
@@ -299,6 +420,66 @@ html {
 
     .logo {
         height: 38px;
+    }
+
+    .philosophy-section {
+        padding: 30px;
+        margin: 30px 0;
+    }
+
+    .philosophy-section h3 {
+        font-size: 1.3rem;
+    }
+
+    .philosophy-section p {
+        font-size: 0.95rem;
+    }
+
+    .philosophy-text {
+        font-size: 0.9rem;
+    }
+
+    .philosophy-glass {
+        padding: 15px 22px;
+        margin: 18px 0;
+    }
+
+    .philosophy-section {
+        padding: 30px;
+        margin: 30px 0;
+    }
+
+    .philosophy-section h3 {
+        font-size: 1.3rem;
+    }
+
+    .philosophy-section p {
+        font-size: 0.95rem;
+    }
+
+    .faculty-page h1 {
+        font-size: 2rem;
+    }
+
+    .faculty-intro {
+        font-size: 1rem;
+    }
+
+    .faculty-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .faculty-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .faculty-card {
+        padding: 20px;
+    }
+
+    .faculty-card h3 {
+        font-size: 1.1rem;
     }
 }
 
@@ -349,8 +530,80 @@ html {
         font-size: 0.9rem;
     }
 
+    .philosophy-text {
+        font-size: 0.85rem;
+    }
+
+    .philosophy-section {
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    .philosophy-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .philosophy-section p {
+        font-size: 0.9rem;
+        text-align: left;
+    }
+
     .hero button {
         padding: 8px 16px;
         font-size: 0.9rem;
+    }
+
+    .philosophy-section {
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    .philosophy-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .philosophy-section p {
+        font-size: 0.9rem;
+        text-align: left;
+    }
+
+    .faculty-page h1 {
+        font-size: 1.5rem;
+        margin-top: 20px;
+    }
+
+    .faculty-intro {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+
+    .faculty-section {
+        margin: 30px 0;
+    }
+
+    .faculty-section h2 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .faculty-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .faculty-card {
+        padding: 15px;
+    }
+
+    .faculty-card h3 {
+        font-size: 1rem;
+    }
+
+    .faculty-role {
+        font-size: 0.9rem;
+    }
+
+    .faculty-department {
+        font-size: 0.85rem;
     }
 }

@@ -1,4 +1,5 @@
 import citLogo from "../assets/citLOGO.png";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -12,9 +13,9 @@ function Navbar() {
 
       {/* RIGHT SIDE */}
       <nav className="nav-links">
-        <a href="/">Home</a>
+        <Link to="/">Home</Link>
         <a href="/#courses">Courses</a>
-        <a href="/#faculty">Faculty</a>
+        <Link to="/faculty">Faculty</Link>
       </nav>
 
     </header>
