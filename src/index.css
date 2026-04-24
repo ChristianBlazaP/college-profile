@@ -85,7 +85,7 @@ html {
 }
 
 .nav-links:hover {
-    color: #facc15;
+    color: #FFC000;
 }
 
 
@@ -127,7 +127,7 @@ html {
 .philosophy-text {
     font-size: 0.95rem;
     margin-top: 20px;
-    color: #f8eb3acb;
+    color: #FFC000;
     font-weight: 600;
     letter-spacing: 1px;
 }
@@ -141,15 +141,54 @@ html {
   padding: 30px;
 }
 
-.card {
+.card  {
     text-decoration: none;
+    text-align: center;
     color: white;
-    background: rgba(255,255,255,0.5);
+    background: #470000;
     padding: 20px;
     border-radius: 15px;
     transition: all 0.3s ease;
     animation: slideUp 0.6s ease;
+    backdrop-filter: blur(10px);
+
 }
+
+.course-page .card {
+    background: #470000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+}
+
+.instructors-box {
+    background: #FFC000;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.instructors-box p{
+    font-size: 1rem;
+    color: #000000;
+    font-weight: 600;
+    margin: 0;
+}
+
+.instructors-box:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+}
+
 
 .card-hover {
     transform: translate(-10px) scale(1.03);
@@ -173,14 +212,14 @@ html {
     padding: 40px;
     border-radius: 15px;
     margin: 40px 0;
-    border-left: 4px solid #f8eb3acb;
+    border-left: 4px solid #FFC000;
     backdrop-filter: blur(10px);
 }
 
 .philosophy-section h3 {
     font-size: 1.5rem;
     margin-top: 0;
-    color: #f8eb3acb;
+    color: #FFC000;
     font-weight: 600;
     margin-bottom: 20px;
 }
@@ -202,7 +241,7 @@ button {
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(45deg, #921616, #f8eb3acb);
+    background: linear-gradient(45deg, #470000, #FFC000);
     color: rgb(0, 0, 0);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -283,7 +322,7 @@ html {
 
 /* BACK BUTTON */
 .back-button {
-    background: linear-gradient(45deg, #921616, #f8eb3a) !important;
+    background: linear-gradient(45deg, #470000, #FFC000) !important;
     padding: 10px 20px !important;
     border: none !important;
     border-radius: 8px !important;
@@ -352,9 +391,9 @@ html {
 
 .faculty-section h2 {
     font-size: 1.8rem;
-    color: #f8eb3acb;
+    color: #FFC000;
     margin-bottom: 30px;
-    border-bottom: 2px solid #f8eb3acb;
+    border-bottom: 2px solid #FFC000;
     padding-bottom: 15px;
     text-align: center;
 }
@@ -369,7 +408,7 @@ html {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(248, 235, 58, 0.2);
-    border-left: 4px solid #f8eb3acb;
+    border-left: 4px solid #FFC000;
     padding: 25px;
     border-radius: 12px;
     transition: all 0.3s ease;
@@ -391,7 +430,7 @@ html {
 
 .faculty-role {
     font-size: 1rem;
-    color: #f8eb3acb;
+    color: #FFC000;
     font-weight: 500;
     margin: 5px 0;
 }

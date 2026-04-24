@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
+import { courses } from "../components/Home";
 
 function CoursePage() {
     const { name } = useParams();
@@ -8,24 +9,45 @@ function CoursePage() {
         navigate(-1);
     };
 
+    const course = courses.find(
+        (c) => c.name === decodeURIComponent(name)
+    );
+
+    if (!course) {
+        return <h2>Course not found</h2>;
+    }
+
     return (
         <div className="course-page">
             <div className="container">
+
                 <div style={{ marginTop: '20px' }}>
                     <button className="back-button" onClick={handleBack}>
                         ← Back
                     </button>
                 </div>
-                <h1>{name}</h1>
 
-                <p>
-                This page shows the instructors and description of {name}.
-                </p>
+                <h1>{course.name}</h1>
+
+                <h3 style={{ color: '#FFC000', fontStyle: 'italic' }}>Department Head</h3>
+                <p>{course.head}</p>
+
+                <h3>Description</h3>
+                <p>{course.description}</p>
 
                 <div className="card">
-                    <h1>Instructors</h1>
-                    <p>Faculty members will be listed here.</p>
+                    <h2>INSTRUCTORS</h2>
+
+                    <div className="grid">
+                        {course.faculty.map((f, index) => (
+                            <div key={index} className="instructors-box">
+                                <img src={f.img} alt={f.name} />
+                                <p>{f.name}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
+
             </div>
         </div>
     );

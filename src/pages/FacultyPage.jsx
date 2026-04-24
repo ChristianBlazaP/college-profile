@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 const facultyBoard = [
   { name: "DR. ERWIN P. ORDOVEZ", role: "College Dean", department: "Administration" },
   { name: "PROF. EVELYN A. GABAS", role: "Associate Dean", department: "Administration" },
+
   { name: "DATU, JORDAN A.", role: "Department Head - Automotive Technology", department: "Automotive Technology" },
   { name: "SANDOVAL, ALLAN A.", role: "Department Head - Electronics Technology", department: "Electronics Technology" },
   { name: "DANGILA CRUZ, ROLE", role: "Department Head - Electrical Technology", department: "Electrical Technology" },
@@ -15,7 +16,7 @@ const facultyBoard = [
 function FacultyPage() {
   const navigate = useNavigate();
 
-  // Group faculty by role
+  // Group faculty by role (NO CHANGE IN LOGIC)
   const groupedFaculty = {
     Administration: facultyBoard.filter(f => f.department === "Administration"),
     DepartmentHeads: facultyBoard.filter(f => f.role.includes("Department Head"))
@@ -24,18 +25,25 @@ function FacultyPage() {
   return (
     <div className="faculty-page">
       <div className="container">
+
+        {/* BACK BUTTON */}
         <button className="back-button" onClick={() => navigate(-1)}>
           ← Back
         </button>
 
+        {/* TITLE */}
         <h1>Faculty Directory</h1>
+
+        {/* INTRO */}
         <p className="faculty-intro">
-          Meet the dedicated leaders and educators of the College of Industrial Technology
+          Meet the dedicated leaders and educators of the College of Industrial Technology.
+          These professionals guide students toward excellence, innovation, and industry readiness.
         </p>
 
-        {/* College Administration */}
+        {/* ADMINISTRATION */}
         <section className="faculty-section">
           <h2>College Administration</h2>
+
           <div className="faculty-grid">
             {groupedFaculty.Administration.map((faculty, index) => (
               <div key={index} className="faculty-card">
@@ -47,9 +55,10 @@ function FacultyPage() {
           </div>
         </section>
 
-        {/* Department Heads */}
+        {/* DEPARTMENT HEADS */}
         <section className="faculty-section">
           <h2>Department Heads</h2>
+
           <div className="faculty-grid">
             {groupedFaculty.DepartmentHeads.map((faculty, index) => (
               <div key={index} className="faculty-card">
@@ -60,6 +69,7 @@ function FacultyPage() {
             ))}
           </div>
         </section>
+
       </div>
     </div>
   );

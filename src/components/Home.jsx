@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const courses = [
+export const courses = [
   {
     name: "Automotive Technology",
     faculty: [
@@ -129,16 +129,6 @@ function Home() {
           </p>
         </div>
 
-        {/* FACULTY */}
-        <h2 id="faculty">Faculty Board</h2>
-        <div className="grid">
-          {facultyBoard.map((f, index) => (
-            <div key={index} className="card">
-              <h3>{f.name}</h3>
-              <p>{f.role}</p>
-            </div>
-          ))}
-        </div>
 
         {/* COURSES */}
         <h2 id="courses">Courses</h2>
@@ -147,7 +137,6 @@ function Home() {
           {courses.map((course, index) => (
             <Link key={index} to={`/course/${course.name}`} className="card">
               <h3>{course.name}</h3>
-              <p>Click to view instructors</p>
             </Link>
           ))}
         </div>
