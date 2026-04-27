@@ -37,6 +37,7 @@ html {
     z-index: 1000;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 15px 40px;
     background: rgba(0,0,0,0.3);
     backdrop-filter: blur(10px);
@@ -46,15 +47,16 @@ html {
 
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 5px;
   padding: 10px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .nav-left {
     display: flex;
     align-items: center;
     gap: 15px;
-    flex: 1;
     margin: 0;
     padding: 0;
 }
@@ -81,11 +83,14 @@ html {
     text-decoration: none;
     color: white;
     font-size: 0.95rem;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 6px;
 }
 
-.nav-links:hover {
+.nav-links a:hover {
     color: #FFC000;
+    background: rgba(255, 192, 0, 0.1);
 }
 
 
@@ -180,13 +185,7 @@ html {
 }
 
 .portrait-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    display: inline-block;
-    background: linear-gradient(135deg, #470000, #FFC000);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 2rem;
 }
 
 .portrait-box h3 {
@@ -526,24 +525,6 @@ html {
         font-size: 0.9rem;
     }
 
-    .philosophy-glass {
-        padding: 15px 22px;
-        margin: 18px 0;
-    }
-
-    .philosophy-section {
-        padding: 30px;
-        margin: 30px 0;
-    }
-
-    .philosophy-section h3 {
-        font-size: 1.3rem;
-    }
-
-    .philosophy-section p {
-        font-size: 0.95rem;
-    }
-
     .faculty-page h1 {
         font-size: 2rem;
     }
@@ -589,19 +570,38 @@ html {
     .portrait-box p {
         font-size: 0.9rem;
     }
+
+    .facilities-preview-box {
+        gap: 20px;
+    }
+
+    .facilities-preview-img {
+        height: 250px;
+    }
+
+    .facilities-preview-info {
+        padding: 30px 25px;
+    }
+
+    .facilities-preview-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .facilities-preview-info p {
+        font-size: 0.95rem;
+    }
 }
 
 /* RESPONSIVE NAVBAR - MOBILE */
 @media (max-width: 640px) {
     .navbar {
-        padding: 10px 12px;
-        flex-direction: column;
-        gap: 8px;
+        padding: 12px 15px;
+        gap: 10px;
     }
 
     .nav-left {
         gap: 10px;
-        width: 100%;
+        min-width: 100%;
     }
 
     .nav-left h2 {
@@ -610,15 +610,15 @@ html {
     }
 
     .nav-links {
-        gap: 8px;
-        font-size: 0.7rem;
+        gap: 10px;
         width: 100%;
         justify-content: flex-start;
+        flex-wrap: wrap;
     }
 
     .nav-links a {
-        font-size: 0.7rem;
-        padding: 5px 8px;
+        font-size: 0.8rem;
+        padding: 8px 12px;
     }
 
     .logo {
@@ -714,6 +714,55 @@ html {
     .faculty-department {
         font-size: 0.85rem;
     }
+
+    .portrait-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .portrait-box {
+        padding: 20px 15px;
+    }
+
+    .portrait-icon {
+        font-size: 2rem;
+    }
+
+    .portrait-box h3 {
+        font-size: 1rem;
+    }
+
+    .portrait-box p {
+        font-size: 0.85rem;
+    }
+
+    .facilities-preview-box {
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
+
+    .facilities-preview-img {
+        height: 200px;
+    }
+
+    .facilities-preview-info {
+        padding: 25px 20px;
+    }
+
+    .facilities-preview-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .facilities-preview-info p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+
+    .preview-btn {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
 }
 
 /* FACILITIES PAGE */
@@ -772,6 +821,84 @@ html {
     margin: 8px 0 0 0;
     font-style: italic;
     font-weight: 500;
+}
+
+/* FACILITIES PREVIEW BOX - HOME PAGE */
+.facilities-preview-box {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 192, 0, 0.3);
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    gap: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.6s ease;
+    margin-bottom: 50px;
+}
+
+.facilities-preview-img {
+    flex: 1;
+    height: 300px;
+    overflow: hidden;
+}
+
+.facilities-preview-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.facilities-preview-box:hover .facilities-preview-img img {
+    transform: scale(1.08);
+}
+
+.facilities-preview-info {
+    flex: 1;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.facilities-preview-info h3 {
+    font-size: 1.5rem;
+    color: white;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+}
+
+.facilities-preview-info p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 20px 0;
+    line-height: 1.6;
+}
+
+.preview-btn {
+    background: linear-gradient(45deg, #470000, #FFC000);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    width: fit-content;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.preview-btn:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.facilities-preview-box:hover {
+    border-color: #FFC000;
+    box-shadow: 0 12px 45px rgba(255, 192, 0, 0.3);
 }
 
 /* FACILITY DETAIL PAGE */
@@ -862,6 +989,26 @@ html {
     .facility-detail p {
         font-size: 1rem;
     }
+
+    .facilities-preview-box {
+        gap: 20px;
+    }
+
+    .facilities-preview-img {
+        height: 250px;
+    }
+
+    .facilities-preview-info {
+        padding: 30px 25px;
+    }
+
+    .facilities-preview-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .facilities-preview-info p {
+        font-size: 0.95rem;
+    }
 }
 
 @media (max-width: 640px) {
@@ -930,6 +1077,34 @@ html {
     }
 
     .portrait-box p {
+        font-size: 0.85rem;
+    }
+
+    .facilities-preview-box {
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
+
+    .facilities-preview-img {
+        height: 200px;
+    }
+
+    .facilities-preview-info {
+        padding: 25px 20px;
+    }
+
+    .facilities-preview-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .facilities-preview-info p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+
+    .preview-btn {
+        padding: 10px 16px;
         font-size: 0.85rem;
     }
 }

@@ -2,6 +2,10 @@ import citLogo from "../assets/citLOGO.png";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  const handleHomeClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <header className="navbar">
 
@@ -13,7 +17,7 @@ function Navbar() {
 
       {/* RIGHT SIDE */}
       <nav className="nav-links">
-        <Link to="/">Home</Link>
+        <Link to="/" onClick={handleHomeClick}>Home</Link>
         <a href="/#courses">Courses</a>
         <Link to="/facilities">Facilities</Link>
         <Link to="/faculty">Faculty</Link>

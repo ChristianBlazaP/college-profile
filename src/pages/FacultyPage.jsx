@@ -160,23 +160,6 @@ function FacultyPage() {
           </div>
         </section>
 
-        {/* ALL DEPARTMENTS */}
-        {courseData.map((department, index) => (
-          <section key={index} className="faculty-section">
-            <h2>{department.name}</h2>
-
-            <div className="faculty-grid">
-              {department.faculty.map((faculty, fIndex) => (
-                <div key={fIndex} className="faculty-card">
-                  <h3>{faculty.name}</h3>
-                  {faculty.role && <p className="faculty-role">{faculty.role}</p>}
-                  <p className="faculty-department">{department.name}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-        ))}
-
       </div>
     </div>
   );

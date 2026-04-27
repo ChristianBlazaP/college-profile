@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { courses } from "../pages/Home";
+import { courses } from "../data/courses";
 
 function CoursePage() {
     const { name } = useParams();
