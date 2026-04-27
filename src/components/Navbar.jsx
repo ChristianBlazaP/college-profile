@@ -15,6 +15,7 @@ function Navbar() {
       <nav className="nav-links">
         <Link to="/">Home</Link>
         <a href="/#courses">Courses</a>
+        <Link to="/facilities">Facilities</Link>
         <Link to="/faculty">Faculty</Link>
       </nav>
 

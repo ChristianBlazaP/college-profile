@@ -133,7 +133,6 @@ html {
 }
 
 
-
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -152,6 +151,56 @@ html {
     animation: slideUp 0.6s ease;
     backdrop-filter: blur(10px);
 
+}
+
+/* PORTRAIT BOXES */
+.portrait-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.portrait-box {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 192, 0, 0.3);
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.6s ease;
+}
+
+.portrait-box:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: #FFC000;
+    box-shadow: 0 12px 45px rgba(255, 192, 0, 0.3);
+}
+
+.portrait-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: inline-block;
+    background: linear-gradient(135deg, #470000, #FFC000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.portrait-box h3 {
+    font-size: 1.3rem;
+    color: white;
+    margin: 15px 0 10px 0;
+    font-weight: 600;
+}
+
+.portrait-box p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin: 0;
 }
 
 .course-page .card {
@@ -442,7 +491,6 @@ html {
     font-style: italic;
 }
 
-/* RESPONSIVE NAVBAR - TABLET */
 @media (max-width: 1024px) {
     .navbar {
         padding: 12px 20px;
@@ -519,6 +567,27 @@ html {
 
     .faculty-card h3 {
         font-size: 1.1rem;
+    }
+
+    .portrait-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+    }
+
+    .portrait-box {
+        padding: 25px 15px;
+    }
+
+    .portrait-icon {
+        font-size: 2.5rem;
+    }
+
+    .portrait-box h3 {
+        font-size: 1.1rem;
+    }
+
+    .portrait-box p {
+        font-size: 0.9rem;
     }
 }
 
@@ -643,6 +712,224 @@ html {
     }
 
     .faculty-department {
+        font-size: 0.85rem;
+    }
+}
+
+/* FACILITIES PAGE */
+.facilities-box {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 192, 0, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.6s ease;
+}
+
+.facilities-box:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: #FFC000;
+    box-shadow: 0 12px 45px rgba(255, 192, 0, 0.3);
+}
+
+.facilities-img-wrapper {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.facilities-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.facilities-box:hover .facilities-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.facilities-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.facilities-info h3 {
+    font-size: 1.2rem;
+    color: white;
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.facility-course {
+    font-size: 0.9rem;
+    color: #FFC000;
+    margin: 8px 0 0 0;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* FACILITY DETAIL PAGE */
+.facility-detail-container {
+    max-width: 1000px;
+    margin: 100px auto 50px;
+    padding: 0 20px;
+}
+
+.back-btn {
+    background: linear-gradient(45deg, #470000, #FFC000);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-btn:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.facility-detail {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 192, 0, 0.3);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.facility-detail h2 {
+    font-size: 2rem;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.detail-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.facility-detail p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: justify;
+    margin: 0;
+}
+
+/* RESPONSIVE - FACILITIES */
+@media (max-width: 1024px) {
+    .facilities-box {
+        border-radius: 10px;
+    }
+
+    .facilities-img-wrapper {
+        height: 200px;
+    }
+
+    .facilities-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .detail-img {
+        height: 300px;
+    }
+
+    .facility-detail h2 {
+        font-size: 1.5rem;
+    }
+
+    .facility-detail p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .facilities-box {
+        border-radius: 8px;
+    }
+
+    .facilities-img-wrapper {
+        height: 180px;
+    }
+
+    .facilities-info {
+        padding: 15px;
+    }
+
+    .facilities-info h3 {
+        font-size: 0.95rem;
+    }
+
+    .facility-detail-container {
+        margin: 80px auto 30px;
+        padding: 0 15px;
+    }
+
+    .back-btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+
+    .facility-detail {
+        padding: 25px;
+    }
+
+    .facility-detail h2 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+
+    .detail-img {
+        height: 220px;
+        margin-bottom: 20px;
+    }
+
+    .facility-detail p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 640px) {
+    .portrait-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .portrait-box {
+        padding: 20px 15px;
+    }
+
+    .portrait-icon {
+        font-size: 2rem;
+    }
+
+    .portrait-box h3 {
+        font-size: 1rem;
+    }
+
+    .portrait-box p {
         font-size: 0.85rem;
     }
 }

@@ -123,12 +123,61 @@ function Home() {
         <div className="philosophy-section">
           <h3>Who are Earistians?</h3>
           <p>
-            Earistians are proud members and graduates of the College of Industrial Technology at Educational Academy of Republic of the Islands of Science and Technology (EARIST). 
+            Earistians are proud members and graduates of the College of Industrial Technology at Eulogio "Amang" Rodriguez Institute of Science and Technology (EARIST). 
             They are technologically competent professionals committed to excellence in innovation, research, and industry-responsive solutions. 
             Earistians embody the values of continuous learning, quality instruction, and dedication to advancing industrial technology and computer technology for the betterment of society.
           </p>
         </div>
 
+        {/* PORTRAIT STATISTICS BOXES */}
+        <h2 style={{ marginTop: "50px", marginBottom: "30px" }}>Why Choose CIT?</h2>
+        <div className="portrait-grid">
+          <div className="portrait-box">
+            <div className="portrait-icon">🎓</div>
+            <h3>10+ Programs</h3>
+            <p>Diverse courses ranging from automotive to computer technology, designed to meet industry demands.</p>
+          </div>
+          
+          <div className="portrait-box">
+            <div className="portrait-icon">👨‍🏫</div>
+            <h3>Expert Faculty</h3>
+            <p>Dedicated educators and industry professionals guiding students toward excellence and innovation.</p>
+          </div>
+          
+          <div className="portrait-box">
+            <div className="portrait-icon">🏭</div>
+            <h3>Modern Labs</h3>
+            <p>State-of-the-art laboratories and workshops equipped with the latest technology and equipment.</p>
+          </div>
+          
+          <div className="portrait-box">
+            <div className="portrait-icon">🌟</div>
+            <h3>Industry Ready</h3>
+            <p>Our graduates are equipped with practical skills and knowledge demanded by the industry.</p>
+          </div>
+          
+          <div className="portrait-box">
+            <div className="portrait-icon">🤝</div>
+            <h3>Industry Partners</h3>
+            <p>Strong connections with leading companies ensuring relevant training and job opportunities.</p>
+          </div>
+          
+          <div className="portrait-box">
+            <div className="portrait-icon">📈</div>
+            <h3>Career Growth</h3>
+            <p>Comprehensive training and guidance for career advancement and professional development.</p>
+          </div>
+        </div>
+
+        {/* FACILITIES */}
+        <div className="container">
+          <h2 id="facilities">Facilities</h2>
+          <div className="grid">
+            <div className="facilities-box">
+              <img src="/asset/facilities/automotive.jpg" alt="Automotive Technology Lab" />
+            </div>
+          </div>
+        </div>
 
         {/* COURSES */}
         <h2 id="courses">Courses</h2>
