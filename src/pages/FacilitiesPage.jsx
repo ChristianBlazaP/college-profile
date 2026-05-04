@@ -78,7 +78,16 @@ const FacilitiesPage = () => {
 
   return (
     <div className="container">
+
+      {/* BACK BUTTON */}
+      <div style={{ marginTop: "20px", marginBottom: "10px" }}>
+        <button className="back-button" onClick={() => navigate(-1)}>
+          ← Back
+        </button>
+      </div>
+
       <h2>Course Laboratories & Facilities</h2>
+
       <div className="grid">
         {facilityLabsData.map((facility) => (
           <div 
@@ -89,13 +98,16 @@ const FacilitiesPage = () => {
             <div className="facilities-img-wrapper">
               <img src={facility.image} alt={facility.name} />
             </div>
+
             <div className="facilities-info">
               <h3><i>{facility.name}</i></h3>
               <p className="facility-course">{facility.course}</p>
             </div>
+
           </div>
         ))}
       </div>
+
     </div>
   );
 };
