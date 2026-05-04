@@ -1,8 +1,45 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { courses} from "../data/courses";
 
 function Home() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDown = currentScrollY > lastScrollY;
+      lastScrollY = currentScrollY;
+
+      const portraitBoxes = document.querySelectorAll(".portrait-box");
+      portraitBoxes.forEach((box) => {
+        const rect = box.getBoundingClientRect();
+        const isInView = rect.top < window.innerHeight * 0.7 && rect.bottom > 0;
+
+        if (isInView && scrollDown) {
+          box.classList.add("animate-in");
+          box.classList.remove("animate-out");
+        } else if (!isInView && !scrollDown) {
+          box.classList.add("animate-out");
+          box.classList.remove("animate-in");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleHeroClick = () => {
     navigate("/");
@@ -39,38 +76,38 @@ function Home() {
         <div className="portrait-grid">
           <div className="portrait-box">
             <div className="portrait-icon">🎓</div>
-            <h3>10+ Programs</h3>
-            <p>Diverse courses ranging from automotive to computer technology, designed to meet industry demands.</p>
+            <h3>Quality Technical Programs</h3>
+            <p>Specialized programs in Automotive, Mechanical, and Electrical Technology designed to produce vocationally, technically, and technologically trained graduates.</p>
           </div>
           
           <div className="portrait-box">
             <div className="portrait-icon">👨‍🏫</div>
-            <h3>Expert Faculty</h3>
-            <p>Dedicated educators and industry professionals guiding students toward excellence and innovation.</p>
+            <h3>Continuous Faculty Development</h3>
+            <p>Dedicated educators committed to excellence with ongoing professional development programs ensuring quality instruction and industry-relevant expertise.</p>
           </div>
           
           <div className="portrait-box">
             <div className="portrait-icon">🏭</div>
-            <h3>Modern Labs</h3>
-            <p>State-of-the-art laboratories and workshops equipped with the latest technology and equipment.</p>
+            <h3>Practical Learning Facilities</h3>
+            <p>Well-equipped laboratories and workshops designed for hands-on technical training and skill development in automotive, mechanical, and electrical systems.</p>
           </div>
           
           <div className="portrait-box">
             <div className="portrait-icon">🌟</div>
-            <h3>Industry Ready</h3>
-            <p>Our graduates are equipped with practical skills and knowledge demanded by the industry.</p>
+            <h3>Globally Competitive Graduates</h3>
+            <p>Production of quality graduates who are economically productive, self-sufficient, and equipped to meet the needs of business and industry.</p>
           </div>
           
           <div className="portrait-box">
-            <div className="portrait-icon">🤝</div>
-            <h3>Industry Partners</h3>
-            <p>Strong connections with leading companies ensuring relevant training and job opportunities.</p>
+            <div className="portrait-icon">🔬</div>
+            <h3>Research & Development</h3>
+            <p>Commitment to research, advanced studies, and progressive leadership through academic excellence and institutional advancement.</p>
           </div>
           
           <div className="portrait-box">
-            <div className="portrait-icon">📈</div>
-            <h3>Career Growth</h3>
-            <p>Comprehensive training and guidance for career advancement and professional development.</p>
+            <div className="portrait-icon">🚀</div>
+            <h3>Excellence & Accreditation</h3>
+            <p>Pursuit of academic excellence through accreditation, striving to be a center of excellence in technical and technological education.</p>
           </div>
         </div>
 
