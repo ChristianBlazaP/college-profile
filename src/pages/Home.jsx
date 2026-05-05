@@ -25,9 +25,6 @@ function Home() {
         if (isInView && scrollDown) {
           box.classList.add("animate-in");
           box.classList.remove("animate-out");
-        } else if (!isInView && !scrollDown) {
-          box.classList.add("animate-out");
-          box.classList.remove("animate-in");
         }
       });
     };
@@ -56,7 +53,10 @@ function Home() {
         <p>Building better future, with innovation and excellence</p>
 
         <a href="#courses">
-          <button>View Courses</button>
+          <button className="hero-button">
+            Continue
+            <span className="arrow-down">↓</span>
+          </button>
         </a>
       </div>
 

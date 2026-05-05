@@ -83,7 +83,7 @@ html {
     text-decoration: none;
     color: white;
     font-size: 0.95rem;
-    transition: all 0.6s ease-in-out;
+    transition: all 0.3s ease-in-out;
     padding: 8px 12px;
     border-radius: 6px;
 }
@@ -152,7 +152,7 @@ html {
     background: #470000;
     padding: 20px;
     border-radius: 15px;
-    transition: all 0.6s ease-in-out;
+    transition: all 0.3s ease-in-out;
     animation: slideUp 0.6s ease;
     backdrop-filter: blur(10px);
 
@@ -175,7 +175,7 @@ html {
     border-radius: 15px;
     padding: 30px 40px;
     text-align: center;
-    transition: all 0.8s ease-in-out;
+    transition: all 0.3s linear;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     flex: 0 1 100%;
     min-height: 180px;
@@ -217,17 +217,11 @@ html {
     transform: translateX(100%);
 }
 
-.portrait-box:nth-child(1) { transition-delay: 0.1s; }
-.portrait-box:nth-child(2) { transition-delay: 0.2s; }
-.portrait-box:nth-child(3) { transition-delay: 0.3s; }
-.portrait-box:nth-child(4) { transition-delay: 0.4s; }
-.portrait-box:nth-child(5) { transition-delay: 0.5s; }
-.portrait-box:nth-child(6) { transition-delay: 0.6s; }
-
 .portrait-box:hover {
     transform: translateY(-10px) scale(1.02) !important;
     border-color: #FFC000;
     box-shadow: 0 12px 45px rgba(255, 192, 0, 0.3);
+    transition: all 0.3s ease-in-out;
 }
 
 .portrait-icon {
@@ -262,6 +256,7 @@ html {
 .card:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
 }
 
 .instructors-box {
@@ -272,7 +267,7 @@ html {
     border-radius: 15px;
     padding: 20px;
     text-align: center;
-    transition: all 0.6s ease-in-out;
+    transition: all 0.3s ease-in-out;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
@@ -286,6 +281,7 @@ html {
 .instructors-box:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
 }
 
 
@@ -343,7 +339,7 @@ button {
     background: linear-gradient(45deg, #470000);
     color: rgb(255, 255, 255);
     cursor: pointer;
-    transition: all 0.6s ease-in-out;
+    transition: all 0.3s ease-in-out;
     font-weight: 500;
     font-size: 1rem;
 }
@@ -351,6 +347,59 @@ button {
 button:hover { 
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.hero-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0;
+    font-size: 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    animation: float-button 3s ease-in-out infinite;
+    color: white;
+    font-weight: 600;
+}
+
+.hero-button::before {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent,  #470000, transparent);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.arrow-down {
+    display: inline-block;
+    font-size: 1.5rem;
+    color:  #470000;
+    line-height: 1;
+    animation: float-arrow 1.5s ease-in-out infinite;
+}
+
+@keyframes float-button {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(15px);
+    }
+}
+
+@keyframes float-arrow {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(8px);
+    }
 }
 
 @keyframes slideup {
