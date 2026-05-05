@@ -1,115 +1,66 @@
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { facilityLabsData } from "../data/facilityLabsData";
 
-const facilityLabsData = [
-  {
-    id: 1,
-    name: "Automotive Technology Laboratory",
-    course: "Automotive Technology",
-    path: "/facilities/automotive",
-    image: "/asset/facilities/automotive.jpg"
-  },
-  {
-    id: 2,
-    name: "Mechanical Engineering Laboratory",
-    course: "Mechanical Technology",
-    path: "/facilities/mechanical",
-    image: "/asset/facilities/automotive.jpg"
-  },
-  {
-    id: 3,
-    name: "Electrical Laboratory",
-    course: "Electrical Technology",
-    path: "/facilities/electrical",
-    image: "/asset/facilities/automotive.jpg"
-  },
-  {
-    id: 4,
-    name: "Electronics Laboratory",
-    course: "Electronics Technology",
-    path: "/facilities/electronics",
-    image: "/asset/facilities/automotive.jpg"
-  },
-  {
-    id: 5,
-    name: "Drafting and Design Studio",
-    course: "Drafting Technology",
-    path: "/facilities/drafting",
-    image: "/asset/facilities/automotive.jpg"
-  },
-  {
-    id: 6,
-    name: "Computer Laboratory",
-    course: "Computer Technology",
-    path: "/facilities/computer",
-    image: "/asset/facilities/automotive.jpg"
-  },
-  {
-    id: 7,
-    name: "HVAC-R Training Center",
-    course: "HVAC-R",
-    path: "/facilities/hvacr",
-    image: "/asset/facilities/automotive.jpg"
-  },
-  {
-    id: 8,
-    name: "Food Trades Kitchen Laboratory",
-    course: "Food Trades",
-    path: "/facilities/food",
-    image: "/asset/facilities/automotive.jpg"
-  },
-  {
-    id: 9,
-    name: "Apparel & Fashion Laboratory",
-    course: "Apparel and Fashion Technology",
-    path: "/facilities/fashion",
-    image: "/asset/facilities/automotive.jpg"
-  },
-  {
-    id: 10,
-    name: "General Education Classroom",
-    course: "General Education",
-    path: "/facilities/general-ed",
-    image: "/asset/facilities/automotive.jpg"
-  }
-];
-
-const FacilitiesPage = () => {
+const FacilitiesDetailPage = () => {
+  const { name } = useParams();
   const navigate = useNavigate();
 
-  return (
-    <div className="container">
+  const facility = facilityLabsData.find(
+    (f) => f.path === `/facilities/${name}`
+  );
 
-      {/* BACK BUTTON */}
-      <div style={{ marginTop: "20px", marginBottom: "10px" }}>
-        <button className="back-button" onClick={() => navigate(-1)}>
-          ← Back
+  if (!facility) {
+    return (
+      <div className="facility-detail-container">
+        <button className="back-btn" onClick={() => navigate(-1)}>
+          ← Go Back
         </button>
+        <div className="facility-detail">
+          <h2>Facility not found</h2>
+          <p>The facility you're looking for doesn't exist.</p>
+        </div>
       </div>
+    );
+  }
 
-      <h2>Course Laboratories & Facilities</h2>
+  return (
+    <div className="facility-detail-container">
+      <button className="back-btn" onClick={() => navigate('/facilities')}>
+        ← Back to Explore Facilities
+      </button>
 
-      <div className="grid">
-        {facilityLabsData.map((facility) => (
-          <div 
-            key={facility.id}
-            className="facilities-box"
-            onClick={() => navigate(facility.path)}
-          >
-            <div className="facilities-img-wrapper">
-              <img src={facility.image} alt={facility.name} />
-            </div>
+      <div className="facility-detail">
+        <h2>{facility.name}</h2>
 
-            <div className="facilities-info">
-              <h3><i>{facility.name}</i></h3>
-              <p className="facility-course">{facility.course}</p>
-            </div>
+        <img
+          src={facility.image}
+          alt={facility.name}
+          className="detail-img"
+        />
 
-          </div>
-        ))}
+        <div style={{ marginTop: '30px' }}>
+          <h3 style={{ color: '#FFC000', marginBottom: '10px' }}>Course</h3>
+          <p style={{ fontSize: '1.1rem', marginBottom: '30px' }}>
+            {facility.course}
+          </p>
+
+          <h3 style={{ color: '#FFC000', marginBottom: '10px' }}>About This Facility</h3>
+          <p style={{ lineHeight: '1.8', fontSize: '1rem' }}>
+            {facility.description || 
+              `This is our state-of-the-art ${facility.name} equipped with modern technology and industrial-standard tools. Students gain practical hands-on experience in a professional learning environment designed to prepare them for real-world industrial applications.`}
+          </p>
+
+          <h3 style={{ color: '#FFC000', marginBottom: '10px', marginTop: '30px' }}>Learning Outcomes</h3>
+          <ul style={{ lineHeight: '1.8', fontSize: '1rem' }}>
+            <li>Mastery of industry-standard equipment and tools</li>
+            <li>Practical application of theoretical concepts</li>
+            <li>Development of technical expertise</li>
+            <li>Safety protocols and best practices</li>
+          </ul>
+        </div>
       </div>
-
     </div>
   );
 };
 
-export default FacilitiesPage;
+export default FacilitiesDetailPage;

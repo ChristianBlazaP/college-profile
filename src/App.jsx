@@ -1,11 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import CoursePage from "./pages/CoursePage";
 import FacultyPage from "./pages/FacultyPage";
-import FacilitiesPage from "./pages/FacilitiesPage";
+import Facilities from "./components/Facilities";
+import FacilitiesDetailPage from "./pages/FacilitiesPage";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -16,8 +19,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/course/:name" element={<CoursePage />} />
         <Route path="/faculty" element={<FacultyPage />} />
-        <Route path="/facilities" element={<FacilitiesPage />} />
+        <Route path="/facilities" element={<Facilities />} />
+        <Route path="/facilities/:name" element={<FacilitiesDetailPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
+
+      <Footer />
     </BrowserRouter>
   );
 }

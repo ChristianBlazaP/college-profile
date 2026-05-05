@@ -17,6 +17,9 @@ function Navbar() {
 
       {/* RIGHT SIDE */}
       <nav className="nav-links">
+        <Link to="/" onClick={handleHomeClick}>
+          Home
+        </Link>
         <Link to="/" onClick={() => {
           setTimeout(() => {
             document.getElementById("courses")?.scrollIntoView({
@@ -24,7 +27,13 @@ function Navbar() {
             });
           }, 100);
         }}>
-        Courses
+          Courses
+        </Link>
+        <Link to="/facilities">
+          Facilities
+        </Link>
+        <Link to="/faculty">
+          Faculty
         </Link>
       </nav>
 

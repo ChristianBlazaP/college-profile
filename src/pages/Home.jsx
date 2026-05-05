@@ -40,10 +40,6 @@ function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleHeroClick = () => {
-    navigate("/");
-  };
-
   return (
     <div>
 
