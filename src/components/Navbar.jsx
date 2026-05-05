@@ -17,10 +17,15 @@ function Navbar() {
 
       {/* RIGHT SIDE */}
       <nav className="nav-links">
-        <Link to="/" onClick={handleHomeClick}>Home</Link>
-        <a href="/#courses">Courses</a>
-        <Link to="/facilities">Facilities</Link>
-        <Link to="/faculty">Faculty</Link>
+        <Link to="/" onClick={() => {
+          setTimeout(() => {
+            document.getElementById("courses")?.scrollIntoView({
+            behavior: "smooth"
+            });
+          }, 100);
+        }}>
+        Courses
+        </Link>
       </nav>
 
     </header>

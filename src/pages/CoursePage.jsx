@@ -41,7 +41,7 @@ function CoursePage() {
                     <div className="grid">
                         {course.faculty.map((f, index) => (
                             <div key={index} className="instructors-box">
-                                <img src={f.img} alt={f.name} />
+                                <img src={f.img} alt={f.name} className="card-img" />
                                 <p>{f.name}</p>
                             </div>
                         ))}

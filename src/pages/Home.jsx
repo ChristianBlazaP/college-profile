@@ -22,11 +22,16 @@ function Home() {
         const isInView =
           rect.top < window.innerHeight * 0.7 && rect.bottom > 0;
 
-        if (isInView && scrollDown) {
-          box.classList.add("animate-in");
-          box.classList.remove("animate-out");
-        }
-      });
+      if (isInView && scrollDown) {
+      box.classList.add("animate-in");
+      box.classList.remove("animate-out");
+      } 
+      
+      else if (!isInView && !scrollDown) {
+      box.classList.add("animate-out");
+      box.classList.remove("animate-in");
+      }
+    });
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -42,8 +47,8 @@ function Home() {
   return (
     <div>
 
-      {/* HERO */}
-      <div className="hero" onClick={handleHeroClick} style={{ cursor: "pointer" }}>
+      {/* HERO/parent */}
+      <div className="hero" style={{ cursor: "pointer" }}>
         <h1>
           Produce technologically competitive graduates by providing capability build-up responsive to the needs of industry.
         </h1>
@@ -74,7 +79,7 @@ function Home() {
         </div>
 
         {/* PORTRAIT SECTION */}
-        <h2 style={{ marginTop: "50px", marginBottom: "30px" }}>Why Choose CIT?</h2>
+        <h2>Why Choose CIT?</h2>
 
         <div className="portrait-grid">
 
@@ -117,7 +122,7 @@ function Home() {
         </div>
 
         {/* FACILITIES */}
-        <h2 id="facilities" style={{ marginTop: "50px", marginBottom: "30px" }}>
+        <h2 id="facilities">
           Explore Our Facilities
         </h2>
 
@@ -138,13 +143,13 @@ function Home() {
         </div>
 
         {/* COURSES */}
-        <h2 id="courses" style={{ marginTop: "50px", marginBottom: "30px" }}>
+        <h2 id="courses">
           Our Courses
         </h2>
 
         <div className="grid">
           {courses.map((course, index) => (
-            <Link key={index} to={`/course/${course.name}`} className="card">
+            <Link key={index} to={`/course/${encodeURIComponent(course.name)}`} className="card">
               <h3>{course.name}</h3>
             </Link>
           ))}
