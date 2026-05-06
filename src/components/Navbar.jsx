@@ -35,6 +35,9 @@ function Navbar() {
         <Link to="/faculty">
           Faculty
         </Link>
+        <Link to="/blog">
+          Blog
+        </Link>
       </nav>
 
     </header>
