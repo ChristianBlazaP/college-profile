@@ -1,13 +1,10 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { courses } from "../data/courses";
+import FacultyCard from "../components/FacultyCard";
 
 function CoursePage() {
     const { name } = useParams();
     const navigate = useNavigate();
-
-    const handleBack = () => {
-        navigate(-1);
-    };
 
     const course = courses.find(
         (c) => c.name === decodeURIComponent(name)
@@ -22,7 +19,7 @@ function CoursePage() {
             <div className="container">
 
                 <div style={{ marginTop: '20px' }}>
-                    <button className="back-button" onClick={handleBack}>
+                    <button className="back-button" onClick={() => navigate(-1)}>
                         ← Back
                     </button>
                 </div>
@@ -40,10 +37,7 @@ function CoursePage() {
 
                     <div className="grid">
                         {course.faculty.map((f, index) => (
-                            <div key={index} className="instructors-box">
-                                <img src={f.img} alt={f.name} className="card-img" />
-                                <p>{f.name}</p>
-                            </div>
+                            <FacultyCard key={index} name={f.name} img={f.img} role={f.role} />
                         ))}
                     </div>
                 </div>

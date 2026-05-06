@@ -6,38 +6,26 @@ function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
+    const boxes = document.querySelectorAll(".portrait-box");
 
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const scrollDown = currentScrollY > lastScrollY;
-      lastScrollY = currentScrollY;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in");
+            entry.target.classList.remove("animate-out");
+          } else {
+            entry.target.classList.remove("animate-in");
+            entry.target.classList.add("animate-out");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
 
-      const portraitBoxes = document.querySelectorAll(".portrait-box");
+    boxes.forEach((box) => observer.observe(box));
 
-      portraitBoxes.forEach((box) => {
-        if (!box) return;
-
-        const rect = box.getBoundingClientRect();
-        const isInView =
-          rect.top < window.innerHeight * 0.7 && rect.bottom > 0;
-
-      if (isInView && scrollDown) {
-      box.classList.add("animate-in");
-      box.classList.remove("animate-out");
-      } 
-      
-      else if (!isInView && !scrollDown) {
-      box.classList.add("animate-out");
-      box.classList.remove("animate-in");
-      }
-    });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => observer.disconnect();
   }, []);
 
   return (
