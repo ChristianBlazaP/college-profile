@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import citLogo from "../assets/citLOGO.png";
+import eLogo from "../assets/Elogo.png";
 import { useEffect, useState } from "react";
 
 function Footer() {
@@ -19,7 +20,7 @@ function Footer() {
 
   return (
     <footer style={{ 
-        background: 'linear-gradient(to bottom, transparent, rgba(71, 0, 0, 0.1))',
+        background: 'linear-gradient(to bottom, transparent, rgba(79, 70, 229, 0.1))',
         borderTop: '1px solid var(--glass-border)',
         paddingTop: '60px',
         position: 'relative'
@@ -30,19 +31,47 @@ function Footer() {
           {/* About Section */}
           <div style={{ flex: '2 1 300px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
-              <img src={citLogo} alt="CIT Logo" style={{ height: '50px' }} />
+              <img src={eLogo} alt="EARIST Logo" style={{ height: '60px', objectFit: 'contain' }} />
+              <img src={citLogo} alt="CIT Logo" style={{ height: '60px', objectFit: 'contain', transform: 'skewY(-5deg)' }} />
               <div>
                 <h4 style={{ color: 'white', fontSize: '1.2rem', margin: 0 }}>College of Industrial Technology</h4>
-                <p style={{ color: 'var(--gold)', fontSize: '0.85rem', margin: 0 }}>EARIST</p>
+                <p style={{ color: 'var(--primary)', fontSize: '0.85rem', margin: 0 }}>EARIST</p>
               </div>
             </div>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6, maxWidth: '400px' }}>
               Committed to excellence in technical education, producing highly skilled and competitive professionals.
             </p>
-            <div style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
-                <a href="#" style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', color: 'white', transition: 'var(--transition)' }} className="social-btn">📘</a>
-                <a href="#" style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', color: 'white', transition: 'var(--transition)' }} className="social-btn">🐦</a>
-                <a href="#" style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', color: 'white', transition: 'var(--transition)' }} className="social-btn">📸</a>
+            <div style={{ marginTop: '15px' }}>
+              <p style={{ color: 'var(--primary)', fontSize: '0.85rem', margin: '5px 0', fontWeight: 600 }}>📞 PHONE</p>
+              <a href="tel:+6328243946" style={{ color: 'var(--text-muted)', fontSize: '0.95rem', textDecoration: 'none', transition: 'var(--transition)' }} className="footer-link">(028) 243-9467</a>
+            </div>
+          </div>
+
+          {/* Social Links */}
+          <div style={{ flex: '1 1 180px' }}>
+            <h4 style={{ color: 'white', fontSize: '1.1rem', marginBottom: '20px' }}>Follow Us</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <a href="https://web.facebook.com/EARISTOfficial" target="_blank" rel="noopener noreferrer" style={{ width: '35px', height: '35px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', color: 'white', transition: 'var(--transition)', fontSize: '1.2rem', fontWeight: 'bold' }} className="social-btn">f</a>
+                <div>
+                  <p style={{ color: 'var(--primary)', fontSize: '0.8rem', margin: '0 0 2px 0', fontWeight: 600 }}>FACEBOOK</p>
+                  <a href="https://web.facebook.com/EARISTOfficial" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', fontSize: '0.75rem', textDecoration: 'none', transition: 'var(--transition)' }} className="footer-link">EARISTOfficial</a>
+                </div>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <a href="https://www.instagram.com/earistofficial/" target="_blank" rel="noopener noreferrer" style={{ width: '35px', height: '35px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', color: 'white', transition: 'var(--transition)', fontSize: '1rem' }} className="social-btn">📷</a>
+                <div>
+                  <p style={{ color: 'var(--primary)', fontSize: '0.8rem', margin: '0 0 2px 0', fontWeight: 600 }}>INSTAGRAM</p>
+                  <a href="https://www.instagram.com/earistofficial/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', fontSize: '0.75rem', textDecoration: 'none', transition: 'var(--transition)' }} className="footer-link">@earistofficial</a>
+                </div>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <a href="mailto:earistofficial1945@gmail.com" style={{ width: '35px', height: '35px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', color: 'white', transition: 'var(--transition)', fontSize: '1.2rem' }} className="social-btn">✉️</a>
+                <div>
+                  <p style={{ color: 'var(--primary)', fontSize: '0.8rem', margin: '0 0 2px 0', fontWeight: 600 }}>EMAIL</p>
+                  <a href="mailto:earistofficial1945@gmail.com" style={{ color: 'var(--text-muted)', fontSize: '0.75rem', textDecoration: 'none', wordBreak: 'break-all', transition: 'var(--transition)' }} className="footer-link">earistofficial1945@gmail.com</a>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -66,16 +95,6 @@ function Footer() {
               <li><Link to="/course/Electrical%20Technology" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'var(--transition)' }} className="footer-link">Electrical Technology</Link></li>
               <li><Link to="/course/Electronics%20Technology" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'var(--transition)' }} className="footer-link">Electronics Technology</Link></li>
             </ul>
-          </div>
-
-          {/* Newsletter / Contact */}
-          <div style={{ flex: '1 1 250px' }}>
-            <h4 style={{ color: 'white', fontSize: '1.1rem', marginBottom: '20px' }}>Newsletter</h4>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '15px' }}>Subscribe to get latest updates and news.</p>
-            <div style={{ display: 'flex', gap: '10px' }}>
-                <input type="email" placeholder="Your email address" style={{ flex: 1, padding: '10px 15px', borderRadius: '4px', border: '1px solid var(--glass-border)', background: 'rgba(0,0,0,0.5)', color: 'white', outline: 'none' }} />
-                <button className="btn btn-primary" style={{ padding: '10px 20px', borderRadius: '4px' }}>Subscribe</button>
-            </div>
           </div>
         </div>
 
@@ -103,7 +122,7 @@ function Footer() {
             width: '45px',
             height: '45px',
             borderRadius: '50%',
-            background: 'var(--gold)',
+            background: 'var(--primary)',
             color: 'var(--dark)',
             border: 'none',
             fontSize: '1.2rem',
@@ -123,8 +142,8 @@ function Footer() {
       </button>
 
       <style>{`
-        .footer-link:hover { color: var(--gold) !important; padding-left: 5px; }
-        .social-btn:hover { background: var(--gold) !important; color: var(--dark) !important; transform: translateY(-3px); }
+        .footer-link:hover { color: var(--primary) !important; padding-left: 5px; }
+        .social-btn:hover { background: var(--primary) !important; color: var(--dark) !important; transform: translateY(-3px); }
       `}</style>
     </footer>
   );

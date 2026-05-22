@@ -19,7 +19,7 @@ function CoursePage() {
         return (
             <div className="container" style={{ paddingTop: '150px', textAlign: 'center', minHeight: '60vh' }}>
                 <div className="glass-panel" style={{ padding: '60px', maxWidth: '600px', margin: '0 auto' }}>
-                    <h2 style={{ fontSize: '2rem', marginBottom: '20px', color: 'var(--gold)' }}>Program Not Found</h2>
+                    <h2 style={{ fontSize: '2rem', marginBottom: '20px', color: 'var(--primary)' }}>Program Not Found</h2>
                     <p style={{ color: 'var(--text-muted)', marginBottom: '30px' }}>The program you are looking for does not exist.</p>
                     <button className="btn btn-primary" onClick={() => navigate(-1)}>
                         Go Back
@@ -33,7 +33,7 @@ function CoursePage() {
         <div style={{ paddingBottom: '100px' }}>
             {/* HERO SECTION */}
             <div className="page-header" style={{ 
-                background: 'linear-gradient(rgba(26, 5, 5, 0.8), rgba(26, 5, 5, 1)), url("/asset/building.jpg") center/cover no-repeat',
+                background: 'linear-gradient(rgba(26, 5, 5, 0.8), rgba(15, 23, 42, 1)), url("/asset/building.jpg") center/cover no-repeat',
                 marginBottom: '60px'
             }}>
                 <div className="container animate-fade-in" style={{ position: 'relative' }}>
@@ -57,13 +57,13 @@ function CoursePage() {
                     {/* MAIN INFO */}
                     <div style={{ flex: '1 1 600px' }} className="animate-slide-up">
                         <div className="glass-panel" style={{ padding: '40px', marginBottom: '40px' }}>
-                            <h3 style={{ fontSize: '1.5rem', color: 'var(--gold)', marginBottom: '15px' }}>Program Overview</h3>
+                            <h3 style={{ fontSize: '1.5rem', color: 'var(--primary)', marginBottom: '15px' }}>Program Overview</h3>
                             <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, margin: 0 }}>
                                 {course.description || "This program provides comprehensive theoretical knowledge and practical skills required to excel in the industry. Students will engage in hands-on activities, projects, and research to prepare them for professional challenges."}
                             </p>
                         </div>
 
-                        <div className="glass-card" style={{ padding: '30px', display: 'flex', alignItems: 'center', gap: '25px', borderLeft: '4px solid var(--gold)' }}>
+                        <div className="glass-card" style={{ padding: '30px', display: 'flex', alignItems: 'center', gap: '25px', borderLeft: '4px solid var(--primary)' }}>
                             <div className="avatar-circle" style={{ width: '60px', height: '60px', fontSize: '1.5rem' }}>
                                 👨‍🏫
                             </div>

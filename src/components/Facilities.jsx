@@ -50,7 +50,7 @@ function Facilities() {
         <div style={{ paddingBottom: '100px' }}>
             {/* PAGE HEADER */}
             <div className="page-header" style={{ 
-                background: 'linear-gradient(rgba(26, 5, 5, 0.8), rgba(26, 5, 5, 1)), url("/asset/building.jpg") center/cover no-repeat',
+                background: 'linear-gradient(rgba(26, 5, 5, 0.8), rgba(15, 23, 42, 1)), url("/asset/building.jpg") center/cover no-repeat',
                 marginBottom: '60px'
             }}>
                 <div className="container animate-fade-in">
@@ -89,7 +89,7 @@ function Facilities() {
                                 display: 'flex', 
                                 flexDirection: 'column', 
                                 animationDelay: `${index * 0.1}s`,
-                                borderBottom: `4px solid var(--gold)`
+                                borderBottom: `4px solid var(--primary)`
                             }}
                         >
                             <div style={{ height: '240px', overflow: 'hidden', position: 'relative' }}>
@@ -113,7 +113,7 @@ function Facilities() {
                                     backdropFilter: 'blur(5px)',
                                     padding: '5px 12px',
                                     borderRadius: '20px',
-                                    color: 'var(--gold)',
+                                    color: 'var(--primary)',
                                     fontSize: '0.8rem',
                                     fontWeight: 600
                                 }}>
@@ -131,7 +131,7 @@ function Facilities() {
                                 }}>
                                     {facilityDescriptions[facility.name] || facility.description}
                                 </p>
-                                <div style={{ marginTop: '20px', color: 'var(--gold)', fontWeight: 600, fontSize: '0.9rem', display: 'flex', alignItems: 'center' }}>
+                                <div style={{ marginTop: '20px', color: 'var(--primary)', fontWeight: 600, fontSize: '0.9rem', display: 'flex', alignItems: 'center' }}>
                                     View Details <span style={{ marginLeft: '8px' }}>→</span>
                                 </div>
                             </div>

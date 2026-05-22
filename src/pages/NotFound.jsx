@@ -28,7 +28,7 @@ function NotFound() {
         <h1 style={{ 
             fontSize: '6rem', 
             margin: '0 0 10px 0', 
-            background: 'linear-gradient(135deg, var(--gold), #ff6b6b)',
+            background: 'linear-gradient(135deg, var(--primary), #38bdf8)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             lineHeight: 1

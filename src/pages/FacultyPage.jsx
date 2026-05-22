@@ -53,7 +53,7 @@ function FacultyPage() {
       
       {/* PAGE HEADER */}
       <div className="page-header" style={{ 
-          background: 'linear-gradient(rgba(26, 5, 5, 0.8), rgba(26, 5, 5, 1)), url("/asset/building.jpg") center/cover no-repeat',
+          background: 'linear-gradient(rgba(26, 5, 5, 0.8), rgba(15, 23, 42, 1)), url("/asset/building.jpg") center/cover no-repeat',
           marginBottom: '60px'
       }}>
           <div className="container animate-fade-in" style={{ position: 'relative' }}>

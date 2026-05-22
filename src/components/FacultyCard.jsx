@@ -33,9 +33,9 @@ function FacultyCard({ name, img, role, department, compact }) {
           <span style={{ 
             display: 'inline-block',
             padding: '4px 12px',
-            background: 'rgba(255, 192, 0, 0.1)',
+            background: 'rgba(14, 165, 233, 0.1)',
             border: '1px solid rgba(255, 192, 0, 0.3)',
-            color: 'var(--gold)',
+            color: 'var(--primary)',
             borderRadius: '20px',
             fontSize: '0.85rem',
             fontWeight: 600,

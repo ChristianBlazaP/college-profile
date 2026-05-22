@@ -69,6 +69,24 @@ function Home() {
 
   return (
     <div>
+      {/* GLOBAL BACKGROUND FOR HOME ONLY */}
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex: -1,
+        background: `url(${bgImage}) center/cover no-repeat`,
+        backgroundAttachment: 'fixed'
+      }}>
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(to bottom, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.98))'
+        }}></div>
+      </div>
+
       {/* HERO SECTION */}
       <div className="hero" style={{ 
         height: '100vh', 
@@ -77,16 +95,14 @@ function Home() {
         justifyContent: 'center',
         position: 'relative',
         textAlign: 'center',
-        padding: '0 24px',
-        background: `url(${bgImage}) center/cover no-repeat`,
-        backgroundAttachment: 'fixed'
+        padding: '0 24px'
       }}>
         {/* Glassy Overlay */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'rgba(26, 5, 5, 0.6)',
-          backdropFilter: 'blur(12px)',
+          background: 'rgba(15, 23, 42, 0.2)',
+          backdropFilter: 'blur(8px)',
           zIndex: 0
         }}></div>
         <div style={{ maxWidth: '900px', zIndex: 1 }} className="animate-fade-in">
@@ -121,7 +137,7 @@ function Home() {
         </div>
 
         {/* PHILOSOPHY */}
-        <div className="glass-panel section-padding reveal-on-scroll" style={{ padding: '60px', marginBottom: '100px', borderLeft: '6px solid var(--gold)' }}>
+        <div className="glass-panel section-padding reveal-on-scroll" style={{ padding: '60px', marginBottom: '60px', borderLeft: '6px solid var(--primary)' }}>
           <span className="section-badge">Our Identity</span>
           <h2 style={{ fontSize: '2.5rem', marginBottom: '24px', color: 'white' }}>Who are Earistians?</h2>
           <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: 1.8, margin: 0 }}>
@@ -129,6 +145,80 @@ function Home() {
             They are technologically competent professionals committed to excellence in innovation, research, and industry-responsive solutions.
             Earistians embody continuous learning and dedication to industrial and computer technology advancement.
           </p>
+        </div>
+
+        {/* GUIDING PRINCIPLES (VMG) */}
+        <div className="section-padding reveal-on-scroll" style={{ paddingTop: 0, paddingBottom: '100px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+             <span className="section-badge">Principles</span>
+             <h2 className="section-title">Vision, Mission & Goals</h2>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
+            {/* EARIST Section */}
+            <div className="glass-panel" style={{ padding: '50px', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ position: 'absolute', top: '-20px', right: '-20px', opacity: 0.03, fontSize: '15rem', pointerEvents: 'none' }}>🏛️</div>
+              <h3 style={{ fontSize: '2rem', color: 'white', marginBottom: '30px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '15px' }}>
+                <span style={{ color: 'var(--primary)' }}>EARIST</span> Institute
+              </h3>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
+                <div>
+                  <h4 style={{ fontSize: '1.5rem', color: 'white', marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <span style={{ color: 'var(--primary)' }}>👁️</span> Vision <span style={{ fontSize: '1rem', color: 'var(--text-muted)', fontWeight: 400 }}>(Bisyon)</span>
+                  </h4>
+                  <p style={{ fontSize: '1.1rem', color: 'var(--text-main)', lineHeight: 1.7, marginBottom: '15px', fontWeight: 500 }}>
+                    EARIST is envisioned to be a center of excellence in trades, business, arts, science and technology education.
+                  </p>
+                  <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', fontStyle: 'italic', lineHeight: 1.6 }}>
+                    May pananaw ang EARIST na maging sentro ng kahusayan sa Pakikipagkalakalan, Negosyo, Sining, Siyensya at Edukasyong Panteknolohiya.
+                  </p>
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '1.5rem', color: 'white', marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <span style={{ color: 'var(--primary)' }}>🎯</span> Mission <span style={{ fontSize: '1rem', color: 'var(--text-muted)', fontWeight: 400 }}>(Misyon)</span>
+                  </h4>
+                  <p style={{ fontSize: '1.1rem', color: 'var(--text-main)', lineHeight: 1.7, marginBottom: '15px', fontWeight: 500 }}>
+                    Turn out vocationally, technically, technologically, and scientifically trained graduates who will be economically productive, self-sufficient, effective, responsible and disciplined citizen of the Philippines.
+                  </p>
+                  <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', fontStyle: 'italic', lineHeight: 1.6 }}>
+                    Humuhubog ng mga nagtapos na may kahusayan sa bokasyonal, teknolohikal at maka-agham na produktibo sa larangang pangkabuhayan, may kasapatang kakayanang pansarili, mabisa, responsable, at disiplinadong mamamayan ng Pilipinas.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* CIT Section */}
+            <div className="glass-panel" style={{ padding: '50px', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ position: 'absolute', top: '-20px', right: '-20px', opacity: 0.03, fontSize: '15rem', pointerEvents: 'none' }}>⚙️</div>
+              <h3 style={{ fontSize: '2rem', color: 'white', marginBottom: '30px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '15px' }}>
+                <span style={{ color: 'var(--primary)' }}>CIT</span> Department
+              </h3>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
+                <div>
+                  <h4 style={{ fontSize: '1.5rem', color: 'white', marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <span style={{ color: 'var(--primary)' }}>🎯</span> Mission <span style={{ fontSize: '1rem', color: 'var(--text-muted)', fontWeight: 400 }}>(Misyon)</span>
+                  </h4>
+                  <p style={{ fontSize: '1.1rem', color: 'var(--text-main)', lineHeight: 1.7, marginBottom: '15px', fontWeight: 500 }}>
+                    To turn out technically and technologically self-sufficient and disciplined graduates capable of contributing to the economic development of the country either as hired workers or entrepreneurs through its programs.
+                  </p>
+                  <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', fontStyle: 'italic', lineHeight: 1.6 }}>
+                    Lumikha ng mga magsisipagtapos na disiplinado at may kakayanang teknikal at teknolohikal na makapag-aambag sa pagpapaunlad ng ekonomiya ng bansa bilang mga manggagawa o negosyante sa pamamagitan ng mga inihaing programa.
+                  </p>
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '1.5rem', color: 'white', marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <span style={{ color: 'var(--primary)' }}>⭐</span> Goal <span style={{ fontSize: '1rem', color: 'var(--text-muted)', fontWeight: 400 }}>(Layunin)</span>
+                  </h4>
+                  <p style={{ fontSize: '1.1rem', color: 'var(--text-main)', lineHeight: 1.7, marginBottom: '15px', fontWeight: 500 }}>
+                    Provide appropriate professional, technical and technological instruction and training in Industrial and Computer Technology and promote research, extension, production and entrepreneurship.
+                  </p>
+                  <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', fontStyle: 'italic', lineHeight: 1.6 }}>
+                    Makapagbigay ng naaangkop na propesyunal, teknikal at teknolohikal na instruksyon at pagsasanay sa Teknolohiyang pang-Industriya at teknolohiyang pang-Kompyuter at itaguyod ang pananaliksik at pagnenegosyo.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* PORTRAIT SECTION / WHY CHOOSE US */}
@@ -184,12 +274,12 @@ function Home() {
             {courses.map((course, index) => (
               <Link key={index} to={`/course/${encodeURIComponent(course.name)}`} className="glass-card reveal-on-scroll" style={{ padding: '35px', textDecoration: 'none', display: 'flex', flexDirection: 'column', height: '100%', animationDelay: `${index * 0.1}s` }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '25px' }}>
-                  <div style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'rgba(255,192,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', color: 'var(--gold)', border: '1px solid rgba(255,192,0,0.2)' }}>
+                  <div style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'rgba(14, 165, 233, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', color: 'var(--primary)', border: '1px solid rgba(14, 165, 233, 0.2)' }}>
                      {['💻','🔌','🔧','🍳','👗'][index % 5]} 
                   </div>
                   <h3 style={{ color: 'white', fontSize: '1.25rem', margin: 0, flex: 1, lineHeight: 1.4 }}>{course.name}</h3>
                 </div>
-                <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', color: 'var(--gold)', fontWeight: 600, fontSize: '0.95rem' }}>
+                <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', color: 'var(--primary)', fontWeight: 600, fontSize: '0.95rem' }}>
                   View Program Details <span style={{ marginLeft: '10px', fontSize: '1.2rem' }}>→</span>
                 </div>
               </Link>

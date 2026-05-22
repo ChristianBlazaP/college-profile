@@ -19,7 +19,7 @@ function FacilitiesDetailPage() {
     return (
       <div className="container" style={{ paddingTop: '150px', textAlign: 'center', minHeight: '60vh' }}>
         <div className="glass-panel" style={{ padding: '60px', maxWidth: '600px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: '2rem', marginBottom: '20px', color: 'var(--gold)' }}>Facility Not Found</h2>
+          <h2 style={{ fontSize: '2rem', marginBottom: '20px', color: 'var(--primary)' }}>Facility Not Found</h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: '30px' }}>The facility you are looking for does not exist or has been moved.</p>
           <button className="btn btn-primary" onClick={() => navigate('/facilities')}>
             Return to Facilities
@@ -36,7 +36,7 @@ function FacilitiesDetailPage() {
           position: 'relative',
           paddingTop: '180px',
           paddingBottom: '80px',
-          background: `linear-gradient(rgba(26, 5, 5, 0.7), rgba(26, 5, 5, 1)), url(${facility.image}) center/cover no-repeat`,
+          background: `linear-gradient(rgba(26, 5, 5, 0.7), rgba(15, 23, 42, 1)), url(${facility.image}) center/cover no-repeat`,
           marginBottom: '60px'
       }}>
           <div className="container animate-fade-in" style={{ position: 'relative', zIndex: 1 }}>
@@ -59,7 +59,7 @@ function FacilitiesDetailPage() {
           {/* MAIN CONTENT */}
           <div style={{ flex: '1 1 600px' }} className="animate-slide-up">
             <div className="glass-panel" style={{ padding: '50px' }}>
-              <h3 style={{ fontSize: '1.8rem', color: 'var(--gold)', marginBottom: '20px' }}>About This Facility</h3>
+              <h3 style={{ fontSize: '1.8rem', color: 'var(--primary)', marginBottom: '20px' }}>About This Facility</h3>
               <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: '40px' }}>
                 {facility.description || 
                   `This is our state-of-the-art ${facility.name} equipped with modern technology and industrial-standard tools. Students gain practical hands-on experience in a professional learning environment designed to prepare them for real-world industrial applications.`}
@@ -84,7 +84,7 @@ function FacilitiesDetailPage() {
 
           {/* SIDEBAR */}
           <div style={{ flex: '1 1 300px' }} className="animate-fade-in">
-            <div className="glass-card" style={{ padding: '30px', borderTop: '4px solid var(--gold)' }}>
+            <div className="glass-card" style={{ padding: '30px', borderTop: '4px solid var(--primary)' }}>
               <h3 style={{ fontSize: '1.4rem', color: 'white', marginBottom: '20px' }}>Learning Outcomes</h3>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                 {[
@@ -100,7 +100,7 @@ function FacilitiesDetailPage() {
                       color: 'var(--text-muted)',
                       lineHeight: 1.6
                   }}>
-                    <span style={{ color: 'var(--gold)' }}>✦</span>
+                    <span style={{ color: 'var(--primary)' }}>✦</span>
                     {item}
                   </li>
                 ))}
