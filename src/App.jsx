@@ -9,6 +9,9 @@ import FacultyPage from "./pages/FacultyPage";
 import Facilities from "./components/Facilities";
 import FacilitiesDetailPage from "./pages/FacilitiesPage";
 import Blog from "./pages/Blog";
+import BlogPostAcademic from "./pages/BlogPostAcademic";
+import BlogPostCampusUpdate from "./pages/BlogPostCampusUpdate";
+import BlogPostAlumniSpotlight from "./pages/BlogPostAlumniSpotlight";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -23,6 +26,9 @@ function App() {
         <Route path="/facilities" element={<Facilities />} />
         <Route path="/facilities/:name" element={<FacilitiesDetailPage />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/academic-news" element={<BlogPostAcademic />} />
+        <Route path="/blog/campus-update" element={<BlogPostCampusUpdate />} />
+        <Route path="/blog/alumni-spotlight" element={<BlogPostAlumniSpotlight />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 

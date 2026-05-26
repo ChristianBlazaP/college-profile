@@ -109,7 +109,7 @@ function Navbar() {
           left: 0, 
           width: '100%', 
           height: '100vh',
-          background: 'rgba(26, 5, 5, 0.98)', 
+          background: 'rgba(25, 23, 22, 0.98)', 
           backdropFilter: 'blur(15px)',
           zIndex: 998, 
           display: 'flex', 
@@ -120,7 +120,8 @@ function Navbar() {
           transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
           opacity: isMobileMenuOpen ? 1 : 0,
           visibility: isMobileMenuOpen ? 'visible' : 'hidden',
-          transform: isMobileMenuOpen ? 'translateY(0)' : 'translateY(-20px)'
+          transform: isMobileMenuOpen ? 'translateY(0)' : 'translateY(-20px)',
+          borderTop: '1px solid rgba(120, 1, 21, 0.3)'
         }}
       >
          {navItems.map((item) => (
@@ -129,10 +130,10 @@ function Navbar() {
                  key={item.name}
                  to="/" 
                  style={{ 
-                   color: isActive(item.path) ? '#FFC000' : 'white', 
+                   color: isActive(item.path) ? '#F7B638' : '#FBFBF2', 
                    textDecoration: 'none', 
                    fontSize: '1.8rem', 
-                   fontWeight: 600,
+                   fontWeight: 700,
                    transition: 'color 0.3s'
                  }}
                  onClick={(e) => {
@@ -149,10 +150,10 @@ function Navbar() {
                 key={item.name}
                 to={item.path}
                 style={{ 
-                  color: item.name !== 'Home' && isActive(item.path) ? '#FFD700' : 'white', 
+                  color: item.name !== 'Home' && isActive(item.path) ? '#F7B638' : '#FBFBF2', 
                   textDecoration: 'none', 
                   fontSize: '1.8rem', 
-                  fontWeight: 600,
+                  fontWeight: 700,
                   transition: 'color 0.3s'
                 }}
                 onClick={() => {
