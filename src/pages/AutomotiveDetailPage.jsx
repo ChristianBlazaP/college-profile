@@ -11,7 +11,7 @@ const AutomotiveDetailPage = () => {
       
       <div className="facility-detail">
         <h2><i>Automotive Technology Laboratory</i></h2>
-        <img src="/asset/facilities/automotive.jpg" alt="Automotive Lab" className="detail-img" />
+        <img src="/assets/facilities/automotive1.jpg" alt="Automotive Lab" className="detail-img" />
         <p>
           State-of-the-art automotive technology laboratory equipped with the latest diagnostic tools and equipment. 
           Students learn hands-on experience in vehicle maintenance, repair, and diagnostics.

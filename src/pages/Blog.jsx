@@ -112,7 +112,7 @@ function Blog() {
             return (
               <Link key={post.id} to={postLink} style={{ textDecoration: 'none' }}>
                 <div className="glass-card reveal-on-scroll" style={{ display: 'flex', flexDirection: 'column', animationDelay: `${i*0.1}s`, cursor: 'pointer', transition: 'var(--transition)', height: '100%', borderTop: `4px solid ${i === 0 ? 'var(--secondary)' : 'var(--tertiary)'}` }}>
-                  <div style={{ height: '200px', background: 'linear-gradient(135deg, rgba(120, 1, 21, 0.05), rgba(247, 182, 56, 0.05))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '4rem', borderBottom: '1px solid var(--glass-border)' }}>
+                  <div style={{ height: '200px', background: 'linear-gradient(135deg, rgba(15, 44, 89, 0.08), rgba(212, 175, 55, 0.08))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '4rem', borderBottom: '1px solid var(--border-color-slate)' }}>
                     {post.icon}
                   </div>
                   <div style={{ padding: '30px', flex: 1, display: 'flex', flexDirection: 'column' }}>

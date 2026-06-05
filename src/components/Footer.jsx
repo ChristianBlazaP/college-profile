@@ -20,8 +20,8 @@ function Footer() {
 
   return (
     <footer style={{ 
-        background: 'linear-gradient(to bottom, transparent, rgba(120, 1, 21, 0.12))',
-        borderTop: '1px solid var(--glass-border)',
+        background: 'linear-gradient(to bottom, transparent, rgba(11, 26, 48, 0.45))',
+        borderTop: '1px solid var(--border-color)',
         paddingTop: '60px',
         position: 'relative'
     }}>

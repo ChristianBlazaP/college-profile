@@ -31,6 +31,7 @@ function Navbar() {
   const handleHomeClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setIsMobileMenuOpen(false);
+    window.dispatchEvent(new CustomEvent('trigger-industrial-slot'));
   };
 
   const navItems = [
@@ -80,6 +81,7 @@ function Navbar() {
                         setIsMobileMenuOpen(false);
                         if (item.name === 'Home') {
                           window.scrollTo({ top: 0, behavior: "smooth" });
+                          window.dispatchEvent(new CustomEvent('trigger-industrial-slot'));
                         }
                       }}
                     >
@@ -109,7 +111,7 @@ function Navbar() {
           left: 0, 
           width: '100%', 
           height: '100vh',
-          background: 'rgba(25, 23, 22, 0.98)', 
+          background: 'rgba(6, 15, 26, 0.98)', 
           backdropFilter: 'blur(15px)',
           zIndex: 998, 
           display: 'flex', 
@@ -121,7 +123,7 @@ function Navbar() {
           opacity: isMobileMenuOpen ? 1 : 0,
           visibility: isMobileMenuOpen ? 'visible' : 'hidden',
           transform: isMobileMenuOpen ? 'translateY(0)' : 'translateY(-20px)',
-          borderTop: '1px solid rgba(120, 1, 21, 0.3)'
+          borderTop: '1px solid var(--border-color)'
         }}
       >
          {navItems.map((item) => (
@@ -130,7 +132,7 @@ function Navbar() {
                  key={item.name}
                  to="/" 
                  style={{ 
-                   color: isActive(item.path) ? '#F7B638' : '#FBFBF2', 
+                   color: isActive(item.path) ? 'var(--secondary)' : 'var(--text-main)', 
                    textDecoration: 'none', 
                    fontSize: '1.8rem', 
                    fontWeight: 700,
@@ -150,7 +152,7 @@ function Navbar() {
                 key={item.name}
                 to={item.path}
                 style={{ 
-                  color: item.name !== 'Home' && isActive(item.path) ? '#F7B638' : '#FBFBF2', 
+                  color: item.name !== 'Home' && isActive(item.path) ? 'var(--secondary)' : 'var(--text-main)', 
                   textDecoration: 'none', 
                   fontSize: '1.8rem', 
                   fontWeight: 700,
@@ -160,6 +162,7 @@ function Navbar() {
                   setIsMobileMenuOpen(false);
                   if (item.name === 'Home') {
                     window.scrollTo({ top: 0, behavior: "smooth" });
+                    window.dispatchEvent(new CustomEvent('trigger-industrial-slot'));
                   }
                 }}
               >

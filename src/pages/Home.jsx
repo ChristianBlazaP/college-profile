@@ -55,16 +55,95 @@ function StatCounter({ end, label, duration = 2000 }) {
   }, [end, duration]);
 
   return (
-    <div ref={nodeRef} className="stat-card glass-panel" style={{ padding: '35px 20px', textAlign: 'center', borderTop: '4px solid var(--secondary)' }}>
+    <div ref={nodeRef} className="stat-card glass-panel" style={{ padding: '35px 20px', textAlign: 'center', borderTop: '2px solid rgba(255, 255, 255, 0.15)' }}>
       <h2 className="text-gradient-primary" style={{ fontSize: '3.8rem', margin: '0 0 10px 0', fontWeight: 900 }}>{count}+</h2>
       <p style={{ color: 'var(--text-main)', margin: 0, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.85rem' }}>{label}</p>
     </div>
   );
 }
 
+function SlotLetter({ targetChar, delay, trigger }) {
+  const [spinning, setSpinning] = useState(false);
+  const [charList, setCharList] = useState([targetChar]);
+
+  const pool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  useEffect(() => {
+    const length = 15 + Math.floor(Math.random() * 5);
+    const list = [];
+    for (let i = 0; i < length - 1; i++) {
+      list.push(pool[Math.floor(Math.random() * pool.length)]);
+    }
+    list.push(targetChar);
+    setCharList(list);
+
+    setSpinning(false);
+
+    const timer = setTimeout(() => {
+      setSpinning(true);
+    }, 50);
+
+    return () => clearTimeout(timer);
+  }, [targetChar, trigger]);
+
+  const duration = 1.6 + (delay * 0.12);
+  const offsetPercentage = spinning ? -((charList.length - 1) / charList.length) * 100 : 0;
+
+  const getCharWidth = (char) => {
+    if (char === 'I') return '0.35em';
+    if (char === 'M' || char === 'W') return '0.85em';
+    return '0.62em';
+  };
+
+  return (
+    <span 
+      className="slot-machine-letter-container"
+      style={{ width: getCharWidth(targetChar) }}
+    >
+      <span 
+        className="slot-machine-letter-strip"
+        style={{
+          transform: `translateY(${offsetPercentage}%)`,
+          transition: spinning ? `transform ${duration}s cubic-bezier(0.1, 0.88, 0.15, 1)` : 'none'
+        }}
+      >
+        {charList.map((c, i) => (
+          <span key={i} className="slot-machine-letter-char">
+            {c}
+          </span>
+        ))}
+      </span>
+    </span>
+  );
+}
+
+function SlotMachineWord({ word = "INDUSTRIAL", trigger }) {
+  return (
+    <span className="slot-machine-word">
+      {word.split('').map((char, index) => (
+        <SlotLetter 
+          key={index} 
+          targetChar={char} 
+          delay={index} 
+          trigger={trigger} 
+        />
+      ))}
+    </span>
+  );
+}
+
 function Home() {
   const navigate = useNavigate();
   useScrollReveal();
+  const [slotTrigger, setSlotTrigger] = useState(0);
+
+  useEffect(() => {
+    const handleTrigger = () => {
+      setSlotTrigger(prev => prev + 1);
+    };
+    window.addEventListener('trigger-industrial-slot', handleTrigger);
+    return () => window.removeEventListener('trigger-industrial-slot', handleTrigger);
+  }, []);
 
   return (
     <div>
@@ -82,7 +161,7 @@ function Home() {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(to bottom, rgba(25, 23, 22, 0.8), rgba(25, 23, 22, 0.98))'
+          background: 'linear-gradient(to bottom, rgba(6, 15, 26, 0.8), rgba(6, 15, 26, 0.98))'
         }}></div>
       </div>
 
@@ -100,16 +179,19 @@ function Home() {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'rgba(25, 23, 22, 0.35)',
+          background: 'rgba(6, 15, 26, 0.35)',
           backdropFilter: 'blur(8px)',
           zIndex: 0
         }}></div>
         <div style={{ maxWidth: '950px', zIndex: 1 }} className="animate-fade-in">
           <span className="section-badge" style={{ marginBottom: '24px' }}>Welcome to EARIST</span>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', marginBottom: '24px', fontWeight: 900 }}>
-            College of <span className="text-gradient-primary">Industrial Technology</span>
+          <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', marginBottom: '24px', fontWeight: 900, lineHeight: 1.3, textAlign: 'center' }}>
+            College of <br />
+            <span className="text-gradient-primary">
+              <SlotMachineWord word="INDUSTRIAL" trigger={slotTrigger} /> Technology
+            </span>
           </h1>
-          <p style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '780px', margin: '0 auto 40px', lineHeight: 1.8 }}>
+          <p style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '780px', margin: '0 auto 40px', lineHeight: 1.8, textAlign: 'center' }}>
             Produce technologically competitive graduates by providing capability build-up responsive to the needs of industry. Building a better future with academic innovation, trust, and professional excellence.
           </p>
           <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -270,7 +352,7 @@ function Home() {
                     borderRadius: '50%', 
                     background: i % 3 === 0 ? 'var(--primary)' : i % 3 === 1 ? 'var(--secondary)' : 'var(--tertiary)',
                     border: '4px solid var(--dark)',
-                    boxShadow: '0 0 15px rgba(247, 182, 56, 0.5)',
+                    boxShadow: '0 0 15px rgba(212, 175, 55, 0.5)',
                     zIndex: 2
                   }} className="timeline-circle"></div>
 
@@ -283,7 +365,7 @@ function Home() {
                     <span style={{ 
                       fontSize: '1.9rem', 
                       fontWeight: 800, 
-                      color: i % 3 === 0 ? '#ff5d7d' : i % 3 === 1 ? 'var(--secondary)' : '#4ade80', 
+                      color: i % 3 === 0 ? '#ff809b' : i % 3 === 1 ? 'var(--secondary)' : '#38bdf8', 
                       display: 'block', 
                       marginBottom: '8px',
                       fontFamily: 'Outfit'
@@ -313,10 +395,9 @@ function Home() {
               { icon: '🔬', color: 'var(--primary)', title: 'Research & Applied Science', desc: 'Promoting innovative project development, safety studies, and entrepreneurship skills.' },
               { icon: '🚀', color: 'var(--tertiary)', title: 'Academic Excellence', desc: 'Dedicated to becoming a distinguished regional center for industrial science education.' }
             ].map((item, i) => (
-              <div key={i} className="glass-card reveal-on-scroll" style={{ padding: '40px 30px', textAlign: 'center', borderTop: `3px solid ${item.color}` }}>
-                <div style={{ fontSize: '3.5rem', marginBottom: '20px', textShadow: `0 0 20px ${item.color}55` }}>{item.icon}</div>
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '16px', color: 'white', fontFamily: 'Outfit' }}>{item.title}</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
+              <div key={i} className="glass-card reveal-on-scroll" style={{ padding: '35px 30px', textAlign: 'left', borderTop: `4px solid ${item.color}` }}>
+                <h3 style={{ fontSize: '1.35rem', marginBottom: '14px', color: 'white', fontFamily: 'Outfit', fontWeight: 700 }}>{item.title}</h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.98rem', lineHeight: 1.7, margin: 0 }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -325,14 +406,18 @@ function Home() {
         {/* FACILITIES PREVIEW */}
         <div id="facilities" className="section-padding reveal-on-scroll" style={{ paddingTop: 0, paddingBottom: '100px' }}>
            <div className="glass-card" style={{ display: 'flex', flexWrap: 'wrap', overflow: 'hidden', borderLeft: '4px solid var(--secondary)' }}>
-              <div style={{ flex: '1 1 400px', minHeight: '400px', position: 'relative' }}>
+              <div style={{ flex: '1 1 400px', minHeight: '400px', display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '0', position: 'relative', overflow: 'hidden' }}>
                  <div style={{
                    position: 'absolute',
                    inset: 0,
-                   background: 'linear-gradient(to right, rgba(25, 23, 22, 0.9) 20%, rgba(25, 23, 22, 0.2))',
-                   zIndex: 1
+                   background: 'linear-gradient(to right, rgba(6, 15, 26, 0.85) 15%, rgba(6, 15, 26, 0.1))',
+                   zIndex: 1,
+                   pointerEvents: 'none'
                  }}></div>
-                 <img src="/asset/facilities/automotive.jpg" alt="Modern Facilities" style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0, zIndex: 0 }} />
+                 <img src="/assets/facilities/automotive1.jpg" alt="Automotive Lab" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                 <img src="/assets/facilities/mecanical1.jpg" alt="Mechanical Lab" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                 <img src="/assets/facilities/chemistry1.png" alt="Chemistry Lab" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                 <img src="/assets/facilities/comp1.jpg" alt="Computer Lab" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div style={{ flex: '1 1 400px', padding: '60px', display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 2 }}>
                  <span className="section-badge" style={{ alignSelf: 'flex-start' }}>Campus tour</span>

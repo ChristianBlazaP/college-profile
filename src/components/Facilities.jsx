@@ -1,6 +1,7 @@
 import { facilityLabsData } from "../data/facilityLabsData";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { filterValidImages, hasValidImages } from "../utils/imageValidator";
 
 function useScrollReveal() {
   useEffect(() => {
@@ -36,12 +37,16 @@ function Facilities() {
     }, []);
 
     const facilityDescriptions = {
-        "Automotive Technology Laboratory": "Learn automotive systems, diagnostics, and repair with industry-standard equipment and digital tooling.",
-        "Mechanical Engineering Laboratory": "Master mechanical design, manufacturing, and precision tool handling procedures.",
-        "Electrical Laboratory": "Study electrical systems, circuits, and advanced power distribution in industrial setups.",
-        "Electronics Laboratory": "Develop skills in electronic circuits, microcontrollers, and IoT hardware engineering.",
-        "Drafting and Design Studio": "Create modern technical drawings and 3D industrial blueprints using CAD suites.",
-        "Computer Laboratory": "Master coding languages, systems administration, and IT networking in advanced settings."
+        "Automotive Technology Laboratory": "Modern automotive systems, diagnostics, and repair facility with engine analyzers, hydraulic diagnostic boards, and hands-on equipment for combustion and electric vehicle maintenance.",
+        "Mechanical Technology Laboratory": "Industrial machining center with precision milling machinery, lathe systems, welding chambers, and CAD/CAM interfaces for fabrication and mechanical assembly.",
+        "Electrical Technology Laboratory": "Comprehensive electrical facility featuring circuit analyzers, transformer modules, motor controllers, and industrial panels for wiring, design, and power distribution training.",
+        "Electronics Laboratory": "High-tech facility with oscilloscope stations, circuit design kits, microcontroller boards, and soldering systems for embedded systems and IoT development.",
+        "Drafting Technology Laboratory": "Modern design studio with ergonomic drafting tables and advanced CAD systems including AutoCAD, SolidWorks, and BIM software for technical documentation.",
+        "Computer Technology Laboratory": "Enterprise-grade facility with server systems, network equipment, databases, and developer workstations for programming, networking, and IT management.",
+        "Industrial Chemistry Laboratory": "Advanced chemical analysis facility with modern reactors, organic synthesis hoods, analytical instruments, and safety devices for experimental chemistry training.",
+        "Apparel and Fashion Technology Laboratory": "Complete apparel production facility with pattern-making equipment, sewing stations, textile analysis tools, and design systems for garment manufacturing.",
+        "HVAC-R Laboratory": "Specialized climate control facility with complete heating, ventilation, air conditioning, and refrigeration systems for installation, maintenance, and troubleshooting training.",
+        "Food Trades Laboratory": "Professional-grade culinary facility with industrial kitchen equipment, food production systems, and workstations for cooking, food safety, and catering operations."
     };
 
     const categories = ["All", ...new Set(facilityLabsData.map(f => f.course))];
@@ -84,34 +89,57 @@ function Facilities() {
                 {/* GRID */}
                 <div className="grid-3">
                     {filteredFacilities.map((facility, index) => {
-                        const borderColors = ['var(--primary)', 'var(--secondary)', 'var(--tertiary)'];
-                        const currentBorder = borderColors[index % 3];
                         return (
                             <div
                                 key={facility.id}
-                                className="glass-card reveal-on-scroll"
+                                className="glass-card reveal-on-scroll facility-card"
                                 onClick={() => navigate(`/facilities/${facility.path.split('/').pop()}`)}
                                 style={{ 
                                     cursor: 'pointer', 
                                     display: 'flex', 
                                     flexDirection: 'column', 
                                     animationDelay: `${index * 0.1}s`,
-                                    borderBottom: `4px solid ${currentBorder}`
+                                    position: 'relative',
+                                    overflow: 'hidden',
+                                    transition: 'all 0.4s ease',
+                                    minHeight: '500px'
                                 }}
                             >
                                 <div style={{ height: '240px', overflow: 'hidden', position: 'relative' }}>
-                                    <img 
-                                        src={facility.image} 
-                                        alt={facility.name} 
-                                        style={{ 
+                                    {hasValidImages(facility.images) ? (
+                                        <img 
+                                            src={filterValidImages(facility.images)[0]} 
+                                            alt={facility.name} 
+                                            style={{ 
+                                                width: '100%', 
+                                                height: '100%', 
+                                                objectFit: 'cover',
+                                                transition: 'transform 0.5s, filter 0.5s'
+                                            }} 
+                                            className="facility-image"
+                                            onMouseOver={e => {
+                                                e.currentTarget.style.transform = 'scale(1.08)';
+                                                e.currentTarget.style.filter = 'blur(2px) brightness(0.7)';
+                                            }}
+                                            onMouseOut={e => {
+                                                e.currentTarget.style.transform = 'scale(1)';
+                                                e.currentTarget.style.filter = 'blur(0px) brightness(1)';
+                                            }}
+                                        />
+                                    ) : (
+                                        <div style={{ 
                                             width: '100%', 
                                             height: '100%', 
-                                            objectFit: 'cover',
-                                            transition: 'transform 0.5s'
-                                        }} 
-                                        onMouseOver={e => e.currentTarget.style.transform = 'scale(1.08)'}
-                                        onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
-                                    />
+                                            display: 'flex', 
+                                            alignItems: 'center', 
+                                            justifyContent: 'center',
+                                            background: 'linear-gradient(135deg, rgba(76, 175, 255, 0.1), rgba(255, 107, 107, 0.1))',
+                                            color: 'var(--text-muted)',
+                                            fontSize: '0.9rem'
+                                        }}>
+                                            No images available
+                                        </div>
+                                    )}
                                     <div style={{ 
                                         position: 'absolute', 
                                         top: '15px', 
@@ -141,7 +169,7 @@ function Facilities() {
                                     }}>
                                         {facilityDescriptions[facility.name] || facility.description}
                                     </p>
-                                    <div style={{ marginTop: '20px', color: 'var(--secondary)', fontWeight: 700, fontSize: '0.92rem', display: 'flex', alignItems: 'center', letterSpacing: '0.5px' }}>
+                                    <div style={{ marginTop: '20px', color: 'var(--secondary)', fontWeight: 700, fontSize: '0.92rem', display: 'flex', alignItems: 'center', letterSpacing: '0.5px', transition: 'transform 0.3s ease' }} className="facility-view-btn">
                                         View Details <span style={{ marginLeft: '8px' }}>→</span>
                                     </div>
                                 </div>

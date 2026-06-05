@@ -2,19 +2,20 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { courses } from "../data/courses";
+import { allFaculty } from "../data/faculty";
 import FacultyCard from "../components/FacultyCard";
 
 const facultyBoard = [
-  { name: "DR. ERWIN P. ORDOVEZ", role: "College Dean", department: "Administration" },
-  { name: "PROF. EVELYN A. GABAS", role: "Associate Dean", department: "Administration" },
+  { name: "DR. ERWIN P. ORDOVEZ", role: "College Dean", department: "Administration", image: "/assets/faculties/Dr. ERWIN P. ORDOVEZ.png" },
+  { name: "PROF. EVELYN A. GABAS", role: "Associate Dean", department: "Administration", image: "/assets/faculties/GABAS, Evelyn A.png" },
 
-  { name: "DATU, JORDAN A.", role: "Department Head", department: "Automotive Technology" },
-  { name: "SANDOVAL, ALLAN A.", role: "Department Head", department: "Electronics Technology" },
-  { name: "DANGLA CRUZ, ROLE", role: "Department Head", department: "Electrical Technology" },
-  { name: "TANUECO, JOSEPH", role: "Department Head", department: "Computer Technology" },
-  { name: "BEDIA, DESIREE JOYCE L.", role: "Department Head", department: "Apparel & Fashion Technology" },
-  { name: "PERALTA, DERICK O.", role: "Department Head", department: "General Education" },
-  { name: "SAN JUAN RHYCA MAE C.", role: "Department Head", department: "Food Trades" },
+  { name: "DATU, JORDAN A.", role: "Department Head", department: "Automotive Technology", image: "/assets/faculties/DATU, Jordan A.png" },
+  { name: "SANDOVAL, ALLAN A.", role: "Department Head", department: "Electronics Technology", image: "/assets/faculties/SANDOVAL, Allan A.png" },
+  { name: "DANGLA CRUZ, ROLF IRWIN C.", role: "Department Head", department: "Electrical Technology", image: "/assets/faculties/DANGLA CRUZ, ROLF IRWIN C.png" },
+  { name: "TANUECO, JOSEPH ANGELO C.", role: "Department Head", department: "Computer Technology", image: "/assets/faculties/TANUECOZ, Joseph Angelo C.png" },
+  { name: "BEDIA, DESIREE JOYCE L.", role: "Department Head", department: "Apparel and Fashion Technology", image: "/assets/faculties/BEDIA, Desiree Joyce L.png" },
+  { name: "PERALTA, DERICK O.", role: "Department Head", department: "General Education", image: "/assets/faculties/PERALTA, DERICK O.png" },
+  { name: "SAN JUAN, RHYCA MAE C.", role: "Department Head", department: "Food Trades", image: "/assets/faculties/SAN JUAN Rhyca Mae C.png" },
 ];
 
 function useScrollReveal() {
@@ -101,7 +102,7 @@ function FacultyPage() {
                     </div>
                     <div className="grid-3" style={{ maxWidth: '900px', margin: '0 auto' }}>
                         {administration.map((f, index) => (
-                            <FacultyCard key={index} name={f.name} role={f.role} department={f.department} />
+                            <FacultyCard key={index} name={f.name} img={f.image} role={f.role} department={f.department} />
                         ))}
                     </div>
                 </div>
@@ -115,7 +116,7 @@ function FacultyPage() {
                     <div className="grid-4">
                         {departmentHeads.map((f, index) => (
                             <div className="reveal-on-scroll" key={index} style={{ animationDelay: `${(index % 4) * 0.1}s` }}>
-                                <FacultyCard name={f.name} role={f.role} department={f.department} />
+                                <FacultyCard name={f.name} img={f.image} role={f.role} department={f.department} />
                             </div>
                         ))}
                     </div>
@@ -127,10 +128,8 @@ function FacultyPage() {
         {activeTab === 'departments' && (
             <div className="animate-fade-in">
                 {courses.map((course, index) => {
-                    const borderColors = ['var(--primary)', 'var(--secondary)', 'var(--tertiary)'];
-                    const currentBorder = borderColors[index % 3];
                     return (
-                        <div key={index} className="glass-panel reveal-on-scroll" style={{ padding: '40px', marginBottom: '40px', borderLeft: `5px solid ${currentBorder}` }}>
+                        <div key={index} className="glass-panel reveal-on-scroll" style={{ padding: '40px', marginBottom: '40px' }}>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--glass-border)', paddingBottom: '20px', marginBottom: '30px', flexWrap: 'wrap', gap: '20px' }}>
                                 <h2 style={{ color: 'white', margin: 0, fontSize: '1.8rem', fontFamily: 'Outfit', fontWeight: 800 }}>
                                     {course.name}

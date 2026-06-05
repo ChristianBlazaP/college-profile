@@ -11,7 +11,7 @@ const WorkshopDetailPage = () => {
       
       <div className="facility-detail">
         <h2><i>Industrial Workshop</i></h2>
-        <img src="/asset/facilities/automotive.jpg" alt="Workshop" className="detail-img" />
+        <img src="/assets/facilities/mecanical1.jpg" alt="Workshop" className="detail-img" />
         <p>
           Comprehensive industrial workshop featuring welding stations, machining equipment, and fabrication tools. 
           Perfect for practical training in manufacturing and industrial processes.
