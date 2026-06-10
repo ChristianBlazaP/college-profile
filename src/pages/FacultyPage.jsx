@@ -1,21 +1,29 @@
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { courses } from "../data/courses";
-import { allFaculty } from "../data/faculty";
 import FacultyCard from "../components/FacultyCard";
+import {
+  drErwinOrdovez,
+  gabasEvelyn,
+  datuJordan,
+  sandovalAllan,
+  danglaCruz,
+  tanuecozJoseph,
+  bediadesiree,
+  peraltaDerick,
+  sanJuanRhyca,
+} from "../assets/faculties/index.js";
 
 const facultyBoard = [
-  { name: "DR. ERWIN P. ORDOVEZ", role: "College Dean", department: "Administration", image: "/assets/faculties/Dr. ERWIN P. ORDOVEZ.png" },
-  { name: "PROF. EVELYN A. GABAS", role: "Associate Dean", department: "Administration", image: "/assets/faculties/GABAS, Evelyn A.png" },
-
-  { name: "DATU, JORDAN A.", role: "Department Head", department: "Automotive Technology", image: "/assets/faculties/DATU, Jordan A.png" },
-  { name: "SANDOVAL, ALLAN A.", role: "Department Head", department: "Electronics Technology", image: "/assets/faculties/SANDOVAL, Allan A.png" },
-  { name: "DANGLA CRUZ, ROLF IRWIN C.", role: "Department Head", department: "Electrical Technology", image: "/assets/faculties/DANGLA CRUZ, ROLF IRWIN C.png" },
-  { name: "TANUECO, JOSEPH ANGELO C.", role: "Department Head", department: "Computer Technology", image: "/assets/faculties/TANUECOZ, Joseph Angelo C.png" },
-  { name: "BEDIA, DESIREE JOYCE L.", role: "Department Head", department: "Apparel and Fashion Technology", image: "/assets/faculties/BEDIA, Desiree Joyce L.png" },
-  { name: "PERALTA, DERICK O.", role: "Department Head", department: "General Education", image: "/assets/faculties/PERALTA, DERICK O.png" },
-  { name: "SAN JUAN, RHYCA MAE C.", role: "Department Head", department: "Food Trades", image: "/assets/faculties/SAN JUAN Rhyca Mae C.png" },
+  { name: "DR. ERWIN P. ORDOVEZ",        role: "College Dean",    department: "Administration",                  image: drErwinOrdovez },
+  { name: "PROF. EVELYN A. GABAS",       role: "Associate Dean",  department: "Administration",                  image: gabasEvelyn },
+  { name: "DATU, JORDAN A.",             role: "Department Head",  department: "Automotive Technology",           image: datuJordan },
+  { name: "SANDOVAL, ALLAN A.",          role: "Department Head",  department: "Electronics Technology",          image: sandovalAllan },
+  { name: "DANGLA CRUZ, ROLF IRWIN C.",  role: "Department Head",  department: "Electrical Technology",           image: danglaCruz },
+  { name: "TANUECO, JOSEPH ANGELO C.",   role: "Department Head",  department: "Computer Technology",             image: tanuecozJoseph },
+  { name: "BEDIA, DESIREE JOYCE L.",     role: "Department Head",  department: "Apparel and Fashion Technology",  image: bediadesiree },
+  { name: "PERALTA, DERICK O.",          role: "Department Head",  department: "General Education",               image: peraltaDerick },
+  { name: "SAN JUAN, RHYCA MAE C.",      role: "Department Head",  department: "Food Trades",                     image: sanJuanRhyca },
 ];
 
 function useScrollReveal() {
@@ -42,7 +50,6 @@ function useScrollReveal() {
 }
 
 function FacultyPage() {
-  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("admin");
   useScrollReveal();
 

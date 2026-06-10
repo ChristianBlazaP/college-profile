@@ -65,7 +65,7 @@ function Navbar() {
                      <Link 
                        to="/" 
                        className={isActive(item.path) ? 'active' : ''}
-                       onClick={(e) => {
+                       onClick={() => {
                          setTimeout(() => {
                            document.getElementById(item.path.substring(2))?.scrollIntoView({ behavior: "smooth" });
                          }, 100);
@@ -138,7 +138,7 @@ function Navbar() {
                    fontWeight: 700,
                    transition: 'color 0.3s'
                  }}
-                 onClick={(e) => {
+                 onClick={() => {
                    setIsMobileMenuOpen(false);
                    setTimeout(() => {
                      document.getElementById(item.path.substring(2))?.scrollIntoView({ behavior: "smooth" });

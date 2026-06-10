@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { courses } from "../data/courses";
 import bgImage from "../assets/BG.png";
+import { automotive1, mecanical1, ichem1, computerlab1 } from "../assets/facilities/index.js";
 
 // Simple hook for scroll reveal animation
 function useScrollReveal() {
@@ -34,9 +35,9 @@ function StatCounter({ end, label, duration = 2000 }) {
 
   useEffect(() => {
     let startTime;
+    let frameId;
     let observer = new IntersectionObserver((entries) => {
       if(entries[0].isIntersecting) {
-        let frameId;
         const animate = (timestamp) => {
           if (!startTime) startTime = timestamp;
           const progress = Math.min((timestamp - startTime) / duration, 1);
@@ -51,7 +52,10 @@ function StatCounter({ end, label, duration = 2000 }) {
     });
     if(nodeRef.current) observer.observe(nodeRef.current);
     
-    return () => observer.disconnect();
+    return () => {
+      if (frameId) cancelAnimationFrame(frameId);
+      observer.disconnect();
+    };
   }, [end, duration]);
 
   return (
@@ -64,21 +68,18 @@ function StatCounter({ end, label, duration = 2000 }) {
 
 function SlotLetter({ targetChar, delay, trigger }) {
   const [spinning, setSpinning] = useState(false);
-  const [charList, setCharList] = useState([targetChar]);
-
-  const pool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-  useEffect(() => {
+  const [charList] = useState(() => {
+    const pool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const length = 15 + Math.floor(Math.random() * 5);
     const list = [];
     for (let i = 0; i < length - 1; i++) {
       list.push(pool[Math.floor(Math.random() * pool.length)]);
     }
     list.push(targetChar);
-    setCharList(list);
+    return list;
+  });
 
-    setSpinning(false);
-
+  useEffect(() => {
     const timer = setTimeout(() => {
       setSpinning(true);
     }, 50);
@@ -415,10 +416,10 @@ function Home() {
                    zIndex: 1,
                    pointerEvents: 'none'
                  }}></div>
-                 <img src="/assets/facilities/automotive1.jpg" alt="Automotive Lab" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                 <img src="/assets/facilities/mecanical1.jpg" alt="Mechanical Lab" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                 <img src="/assets/facilities/chemistry1.png" alt="Chemistry Lab" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                 <img src="/assets/facilities/comp1.jpg" alt="Computer Lab" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                 <img src={automotive1}   alt="Automotive Lab"  style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                 <img src={mecanical1}   alt="Mechanical Lab"  style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                 <img src={ichem1}       alt="Chemistry Lab"   style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                 <img src={computerlab1} alt="Computer Lab"    style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div style={{ flex: '1 1 400px', padding: '60px', display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 2 }}>
                  <span className="section-badge" style={{ alignSelf: 'flex-start' }}>Campus tour</span>

@@ -1,4 +1,37 @@
 // src/data/courses.js
+// Faculty images are now Vite-bundled via the faculties asset index.
+import {
+  angloEdwin,
+  amacNacho,
+  alvaroFerdinand,
+  bairanRyan,
+  barbaErwin,
+  basiMaureen,
+  bediadesiree,
+  bernardoJay,
+  bucaoIrving,
+  castillanoIvan,
+  danglaCruz,
+  datuJordan,
+  delaCruzSofia,
+  dinerosDaniel,
+  doctoleroArnel,
+  doctorMario,
+  jameroRichard,
+  marceloMerelyn,
+  naridoVincent,
+  ordovezDennis,
+  peraltaDerick,
+  perezEldon,
+  pielagoMithos,
+  riveraSherwin,
+  sanJuanRhyca,
+  sandovalAllan,
+  tanuecozJoseph,
+  tobiasAriel,
+  ubaldoJorge,
+  villadolidRowena,
+} from "../assets/faculties/index.js";
 
 export const courses = [
   {
@@ -31,10 +64,10 @@ export const courses = [
       "Workshop Management and Safety Compliance"
     ],
     faculty: [
-      { name: "DATU, JORDAN A.", img: "/assets/faculties/DATU, Jordan A.png" },
-      { name: "ANGLO, EDWIN.", img: "/assets/faculties/ANGLO, Edwin.png" },
-      { name: "CASTILLANO, IVAN F.", img: "/assets/faculties/CASTILLANO, Ivan F.png" },
-      { name: "RIVERA, SHERWIN KEITH T.", img: "/assets/faculties/RIVERA, Sherwin Keith T.png" }
+      { name: "DATU, JORDAN A.",          img: datuJordan },
+      { name: "ANGLO, EDWIN.",             img: angloEdwin },
+      { name: "CASTILLANO, IVAN F.",       img: castillanoIvan },
+      { name: "RIVERA, SHERWIN KEITH T.",  img: riveraSherwin }
     ]
   },
   {
@@ -67,10 +100,10 @@ export const courses = [
       "Industrial Assembly and Blueprint Interpretation"
     ],
     faculty: [
-      { name: "PEREZ, ELDON P.", img: "/assets/faculties/PEREZ, ELDON P.png" },
-      { name: "BARBA, ERWIN C.", img: "/assets/faculties/BARBA, Erwin C.png" },
-      { name: "DINEROS, DANIEL D.", img: "/assets/faculties/DINEROS, Daniel D.png" },
-      { name: "ORDOVEZ, DENNIS P.", img: "/assets/faculties/ORDOVEZ, Dennis P.png" }
+      { name: "PEREZ, ELDON P.",     img: perezEldon },
+      { name: "BARBA, ERWIN C.",     img: barbaErwin },
+      { name: "DINEROS, DANIEL D.",  img: dinerosDaniel },
+      { name: "ORDOVEZ, DENNIS P.",  img: ordovezDennis }
     ]
   },
   {
@@ -103,10 +136,10 @@ export const courses = [
       "High-Voltage Safety and Emergency Fault Diagnosis"
     ],
     faculty: [
-      { name: "DANGLA CRUZ, ROLF IRWIN C.", img: "/assets/faculties/DANGLA CRUZ, ROLF IRWIN C.png" },
-      { name: "BARBA, ERWIN C.", img: "/assets/faculties/BARBA, Erwin C.png" },
-      { name: "TOBIAS, ARIEL E.", img: "/assets/faculties/TOBIAS ARIEL E.png" },
-      { name: "ALVARO, Ferdinand P. CRUZ, ROLF IRWIN C.", img: "/assets/faculties/ALVARO, Ferdinand p. CRUZ, ROLF IRWIN C.png" }
+      { name: "DANGLA CRUZ, ROLF IRWIN C.",                     img: danglaCruz },
+      { name: "BARBA, ERWIN C.",                                 img: barbaErwin },
+      { name: "TOBIAS, ARIEL E.",                                img: tobiasAriel },
+      { name: "ALVARO, Ferdinand P. CRUZ, ROLF IRWIN C.",        img: alvaroFerdinand }
     ]
   },
   {
@@ -139,11 +172,11 @@ export const courses = [
       "PCB Layout Design and Precision Soldering"
     ],
     faculty: [
-      { name: "SANDOVAL, ALLAN A.", img: "/assets/faculties/SANDOVAL, Allan A.png" },
-      { name: "BERNARDO, JAY C.", img: "/assets/faculties/BERNARDO, Jay C.png" },
-      { name: "JAMERO, RICHARD K.", img: "/assets/faculties/JAMERO, Richard K.png" },
-      { name: "NARIDO, VINCENT A.", img: "/assets/faculties/NARIDO, VINCENT A.png" },
-      { name: "BAIRAN, RYAN ALEXIE L.", img: "/assets/faculties/BAIRAN, Ryan Alexie L.png" }
+      { name: "SANDOVAL, ALLAN A.",     img: sandovalAllan },
+      { name: "BERNARDO, JAY C.",       img: bernardoJay },
+      { name: "JAMERO, RICHARD K.",     img: jameroRichard },
+      { name: "NARIDO, VINCENT A.",     img: naridoVincent },
+      { name: "BAIRAN, RYAN ALEXIE L.", img: bairanRyan }
     ]
   },
   {
@@ -176,8 +209,8 @@ export const courses = [
       "Visual Rendering and Engineering File Archiving"
     ],
     faculty: [
-      { name: "PEREZ, ELDON P.", img: "/assets/faculties/PEREZ, ELDON P.png" },
-      { name: "UBALDO, JORGE S.", img: "/assets/faculties/UBALDO, Jorge S.png" }
+      { name: "PEREZ, ELDON P.",   img: perezEldon },
+      { name: "UBALDO, JORGE S.",  img: ubaldoJorge }
     ]
   },
   {
@@ -210,9 +243,9 @@ export const courses = [
       "Core Threat Prevention and System Hardening"
     ],
     faculty: [
-      { name: "TANUECO, JOSEPH ANGELO C.", img: "/assets/faculties/TANUECOZ, Joseph Angelo C.png" },
-      { name: "BUCAO, IRVING E.", img: "/assets/faculties/BUCAO, Irving E.png" },
-      { name: "PIELAGO, MITHOS ARTH M.", img: "/assets/faculties/PIELAGO, Mithos Arth M.png" }
+      { name: "TANUECO, JOSEPH ANGELO C.", img: tanuecozJoseph },
+      { name: "BUCAO, IRVING E.",           img: bucaoIrving },
+      { name: "PIELAGO, MITHOS ARTH M.",    img: pielagoMithos }
     ]
   },
   {
@@ -245,8 +278,8 @@ export const courses = [
       "Environmental Compliance Monitoring and Control"
     ],
     faculty: [
-      { name: "PERALTA, DERICK O.", img: "/assets/faculties/PERALTA, DERICK O.png" },
-      { name: "ANGLO, EDWIN.", img: "/assets/faculties/ANGLO, Edwin.png" }
+      { name: "PERALTA, DERICK O.", img: peraltaDerick },
+      { name: "ANGLO, EDWIN.",       img: angloEdwin }
     ]
   },
   {
@@ -279,9 +312,9 @@ export const courses = [
       "Apparel Production Planning and Cost Estimation"
     ],
     faculty: [
-      { name: "BEDIA, DESIREE JOYCE L.", img: "/assets/faculties/BEDIA, Desiree Joyce L.png" },
-      { name: "Dela Cruz, Sofia.", img: "/assets/faculties/Dela cruz, Sofia.png" },
-      { name: "VILLADOLID, ROWENA M.", img: "/assets/faculties/VILLADOLID, Rowena M.png" }
+      { name: "BEDIA, DESIREE JOYCE L.", img: bediadesiree },
+      { name: "Dela Cruz, Sofia.",        img: delaCruzSofia },
+      { name: "VILLADOLID, ROWENA M.",    img: villadolidRowena }
     ]
   },
   {
@@ -314,8 +347,8 @@ export const courses = [
       "Eco-Friendly Refrigerant Handling and Regulations Compliance"
     ],
     faculty: [
-      { name: "ORDOVEZ, DENNIS P.", img: "/assets/faculties/ORDOVEZ, Dennis P.png" },
-      { name: "DINEROS, DANIEL D.", img: "/assets/faculties/DINEROS, Daniel D.png" }
+      { name: "ORDOVEZ, DENNIS P.",  img: ordovezDennis },
+      { name: "DINEROS, DANIEL D.",  img: dinerosDaniel }
     ]
   },
   {
@@ -348,10 +381,10 @@ export const courses = [
       "Professional Catering and Dining Service Coordination"
     ],
     faculty: [
-      { name: "SAN JUAN, RHYCA MAE C.", img: "/assets/faculties/SAN JUAN Rhyca Mae C.png" },
-      { name: "DOCTOR III, MARIO MANUEL B.", img: "/assets/faculties/DOCTOR III, Mario Manuel B.png" },
-      { name: "MARCELO, MERELYN A.", img: "/assets/faculties/MARCELO, Merelyn A.png" },
-      { name: "BASIA, MAUREEN D.", img: "/assets/faculties/BASI, Maureen D.png" }
+      { name: "SAN JUAN, RHYCA MAE C.",      img: sanJuanRhyca },
+      { name: "DOCTOR III, MARIO MANUEL B.", img: doctorMario },
+      { name: "MARCELO, MERELYN A.",         img: marceloMerelyn },
+      { name: "BASIA, MAUREEN D.",           img: basiMaureen }
     ]
   },
   {
@@ -384,11 +417,11 @@ export const courses = [
       "Intercultural Understanding and Civic Leadership"
     ],
     faculty: [
-      { name: "PERALTA, DERICK O.", img: "/assets/faculties/PERALTA, DERICK O.png" },
-      { name: "ANGLO, EDWIN.", img: "/assets/faculties/ANGLO, Edwin.png" },
-      { name: "Dela Cruz, Sofia.", img: "/assets/faculties/Dela cruz, Sofia.png" },
-      { name: "AMAC, NACHO B.", img: "/assets/faculties/AMAC, Nacho B.png" },
-      { name: "DOCTOLERO, ARNEL A.", img: "/assets/faculties/DOCTOLERO, Arnel A.png" }
+      { name: "PERALTA, DERICK O.",   img: peraltaDerick },
+      { name: "ANGLO, EDWIN.",         img: angloEdwin },
+      { name: "Dela Cruz, Sofia.",     img: delaCruzSofia },
+      { name: "AMAC, NACHO B.",        img: amacNacho },
+      { name: "DOCTOLERO, ARNEL A.",   img: doctoleroArnel }
     ]
   }
 ];

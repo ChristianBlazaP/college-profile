@@ -12,7 +12,6 @@ function FacilitiesDetailPage() {
   // Scroll to top on load
   useEffect(() => {
     window.scrollTo(0, 0);
-    setCurrentImageIndex(0);
   }, [name]);
 
   const facility = facilityLabsData.find(
