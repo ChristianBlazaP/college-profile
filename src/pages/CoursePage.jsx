@@ -15,6 +15,9 @@ function CoursePage() {
         (c) => c.name === decodeURIComponent(name)
     );
 
+    // Get the department head's image from faculty list
+    const headImage = course?.faculty?.find(f => f.name === course.head)?.img;
+
     if (!course) {
         return (
             <div className="container" style={{ paddingTop: '150px', textAlign: 'center', minHeight: '60vh' }}>
@@ -52,16 +55,38 @@ function CoursePage() {
             </div>
 
             <div className="container">
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
                     
                     {/* MAIN INFO */}
-                    <div style={{ flex: '1 1 700px' }} className="animate-slide-up">
+                    <div className="animate-slide-up">
                         {/* Overview */}
                         <div className="glass-panel" style={{ padding: '40px', marginBottom: '30px', borderLeft: '4px solid var(--secondary)' }}>
                             <h3 style={{ fontSize: '1.6rem', color: 'var(--secondary)', marginBottom: '15px', fontFamily: 'Outfit', fontWeight: 800 }}>Program Overview</h3>
                             <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, margin: 0 }}>
                                 {course.description || "This program provides comprehensive theoretical knowledge and practical skills required to excel in the industry."}
                             </p>
+                        </div>
+
+                        {/* Department Head - Full Width with Picture */}
+                        <div className="glass-panel" style={{ padding: '40px', marginBottom: '40px', borderLeft: '4px solid var(--primary)', display: 'flex', alignItems: 'center', gap: '30px' }}>
+                            <div style={{ flexShrink: 0 }}>
+                                <div className="avatar-circle" style={{ width: '140px', height: '140px', fontSize: '3rem', border: '3px solid var(--secondary)', background: 'linear-gradient(135deg, rgba(6, 15, 26, 0.95) 0%, rgba(22, 54, 99, 0.6) 100%)', boxShadow: '0 0 30px rgba(212, 175, 55, 0.25)', overflow: 'hidden' }}>
+                                    {headImage ? (
+                                        <img 
+                                            src={headImage} 
+                                            alt={course.head}
+                                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                        />
+                                    ) : (
+                                        '👨‍🏫'
+                                    )}
+                                </div>
+                            </div>
+                            <div style={{ flex: 1 }}>
+                                <h4 style={{ color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px', fontWeight: 700 }}>Department Head</h4>
+                                <h2 style={{ color: 'var(--secondary)', fontSize: '1.8rem', margin: '0 0 10px 0', fontFamily: 'Outfit', fontWeight: 800 }}>{course.head}</h2>
+                                <p style={{ color: 'var(--text-muted)', fontSize: '1.02rem', margin: 0, lineHeight: 1.6 }}>Leading the {course.name} program with expertise and dedication</p>
+                            </div>
                         </div>
 
                         {/* Quick Facts Card */}
@@ -135,36 +160,18 @@ function CoursePage() {
                             </div>
                         )}
 
-                        {/* Department Head */}
-                        <div className="glass-card" style={{ padding: '30px', display: 'flex', alignItems: 'center', gap: '25px', borderLeft: '4px solid var(--primary)' }}>
-                            <div className="avatar-circle" style={{ width: '60px', height: '60px', fontSize: '1.5rem', border: '2px solid var(--secondary)', background: 'rgba(6, 15, 26, 0.8)' }}>
-                                👨‍🏫
+                        {/* Key Instructors - Full Width */}
+                        {course.faculty && course.faculty.length > 0 && (
+                            <div className="glass-panel" style={{ padding: '40px', marginBottom: '30px', borderLeft: '4px solid var(--secondary)' }}>
+                                <h2 style={{ fontSize: '1.8rem', color: 'white', marginBottom: '30px', fontFamily: 'Outfit', fontWeight: 800 }}>Key Instructors</h2>
+                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
+                                    {course.faculty.map((f, index) => (
+                                        <FacultyCard key={index} name={f.name} img={f.img} role={f.role || "Instructor"} department={course.name} compact={false} />
+                                    ))}
+                                </div>
                             </div>
-                            <div>
-                                <h4 style={{ color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px', fontWeight: 700 }}>Department Head</h4>
-                                <h3 style={{ color: 'white', fontSize: '1.3rem', margin: 0, fontFamily: 'Outfit', fontWeight: 700 }}>{course.head}</h3>
-                            </div>
-                        </div>
+                        )}
                     </div>
-
-                    {/* SIDEBAR / FACULTY */}
-                    <div style={{ flex: '1 1 350px' }} className="animate-fade-in">
-                        <div className="glass-panel" style={{ padding: '30px', display: 'flex', flexDirection: 'column', height: '500px' }}>
-                            <h2 style={{ fontSize: '1.5rem', color: 'white', marginBottom: '25px', borderBottom: '1px solid var(--glass-border)', paddingBottom: '15px', fontFamily: 'Outfit', fontWeight: 700, flexShrink: 0 }}>
-                                Key Instructors
-                            </h2>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', overflowY: 'auto', paddingRight: '8px', flex: 1 }}>
-                                {course.faculty && course.faculty.length > 0 ? (
-                                    course.faculty.map((f, index) => (
-                                        <FacultyCard key={index} name={f.name} img={f.img} role={f.role || "Instructor"} department={course.name} compact={true} />
-                                    ))
-                                ) : (
-                                    <p style={{ color: 'var(--text-muted)' }}>No instructors listed currently.</p>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>

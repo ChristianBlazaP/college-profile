@@ -381,23 +381,24 @@ function Home() {
 
         {/* WHY CHOOSE CIT */}
         <div className="section-padding reveal-on-scroll" style={{ paddingTop: 0, paddingBottom: '80px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-             <span className="section-badge" style={{ background: 'rgba(56, 102, 65, 0.15)', borderColor: 'var(--tertiary)' }}>Features</span>
-             <h2 className="section-title">Why Choose CIT?</h2>
+          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+             <span className="section-badge" style={{ background: 'rgba(56, 102, 65, 0.15)', borderColor: 'var(--tertiary)', marginBottom: '20px', display: 'inline-block' }}>Features</span>
+             <h2 className="section-title" style={{ fontSize: '3.2rem', letterSpacing: '-1px', marginBottom: '24px' }}>Why Choose CIT?</h2>
+             <p style={{ color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto', fontSize: '1.1rem', lineHeight: 1.8, fontWeight: 500, letterSpacing: '0.3px' }}>Explore the distinctive advantages and comprehensive resources that make CIT an exceptional choice for your technical education and career development.</p>
           </div>
 
           <div className="grid-3">
             {[
-              { icon: '🎓', color: 'var(--primary)', title: 'Quality Technical Programs', desc: 'Accredited vocational and industrial computing programs tailored for active career paths.' },
-              { icon: '👨‍🏫', color: 'var(--secondary)', title: 'Experienced Faculty', desc: 'Expert educators continuously trained to maintain high standards of academic guidance.' },
-              { icon: '🏭', color: 'var(--tertiary)', title: 'Premium Learning Spaces', desc: 'Fully functional laboratories built to replicate actual work settings and operations.' },
-              { icon: '🌟', color: 'var(--secondary)', title: 'Highly Adaptable Graduates', desc: 'Equipping students with in-demand skills recognized by manufacturing and software industries.' },
-              { icon: '🔬', color: 'var(--primary)', title: 'Research & Applied Science', desc: 'Promoting innovative project development, safety studies, and entrepreneurship skills.' },
-              { icon: '🚀', color: 'var(--tertiary)', title: 'Academic Excellence', desc: 'Dedicated to becoming a distinguished regional center for industrial science education.' }
+              { color: 'var(--primary)', title: 'Quality Technical Programs', desc: 'Accredited vocational and industrial computing programs tailored for active career paths.' },
+              { color: 'var(--secondary)', title: 'Experienced Faculty', desc: 'Expert educators continuously trained to maintain high standards of academic guidance.' },
+              { color: 'var(--tertiary)', title: 'Premium Learning Spaces', desc: 'Fully functional laboratories built to replicate actual work settings and operations.' },
+              { color: 'var(--secondary)', title: 'Highly Adaptable Graduates', desc: 'Equipping students with in-demand skills recognized by manufacturing and software industries.' },
+              { color: 'var(--primary)', title: 'Research & Applied Science', desc: 'Promoting innovative project development, safety studies, and entrepreneurship skills.' },
+              { color: 'var(--tertiary)', title: 'Academic Excellence', desc: 'Dedicated to becoming a distinguished regional center for industrial science education.' }
             ].map((item, i) => (
-              <div key={i} className="glass-card reveal-on-scroll" style={{ padding: '35px 30px', textAlign: 'left', borderTop: `4px solid ${item.color}` }}>
-                <h3 style={{ fontSize: '1.35rem', marginBottom: '14px', color: 'white', fontFamily: 'Outfit', fontWeight: 700 }}>{item.title}</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.98rem', lineHeight: 1.7, margin: 0 }}>{item.desc}</p>
+              <div key={i} className="glass-card reveal-on-scroll" style={{ padding: '40px 32px', textAlign: 'left', borderTop: `4px solid ${item.color}`, display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <h3 style={{ fontSize: '1.45rem', marginBottom: '8px', marginTop: '0px', color: 'white', fontFamily: 'Outfit', fontWeight: 700, letterSpacing: '-0.5px', lineHeight: 1.3 }}>{item.title}</h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.98rem', lineHeight: 1.8, margin: 0, fontWeight: 500, letterSpacing: '0.2px' }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -442,17 +443,11 @@ function Home() {
 
           <div className="grid-3">
             {courses.map((course, index) => {
-              const icons = ['💻','🔌','🔧','⚙️','📐','🏫','🍽️','💻','❄️','👗'];
               const borderColors = ['var(--primary)', 'var(--secondary)', 'var(--tertiary)', 'var(--primary)', 'var(--secondary)', 'var(--tertiary)'];
               const currentBorder = borderColors[index % 3];
               return (
                 <Link key={index} to={`/course/${encodeURIComponent(course.name)}`} className="glass-card reveal-on-scroll" style={{ padding: '35px', textDecoration: 'none', display: 'flex', flexDirection: 'column', height: '100%', borderTop: `4px solid ${currentBorder}` }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '25px' }}>
-                    <div style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'rgba(251, 251, 242, 0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', color: 'var(--secondary)', border: '1px solid rgba(251, 251, 242, 0.1)' }}>
-                       {icons[index] || '⚙️'} 
-                    </div>
-                    <h3 style={{ color: 'white', fontSize: '1.25rem', margin: 0, flex: 1, lineHeight: 1.4, fontFamily: 'Outfit', fontWeight: 700 }}>{course.name}</h3>
-                  </div>
+                  <h3 style={{ color: 'white', fontSize: '1.25rem', margin: '0 0 20px 0', flex: 1, lineHeight: 1.4, fontFamily: 'Outfit', fontWeight: 700 }}>{course.name}</h3>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '25px' }}>
                     {course.description.substring(0, 100)}...
                   </p>

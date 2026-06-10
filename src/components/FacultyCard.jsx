@@ -77,25 +77,26 @@ function FacultyCard({ name, img, role, department, compact }) {
       </div>
       
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-        <h3 style={{ fontSize: compact ? '1.15rem' : '1.35rem', color: 'white', margin: '0 0 10px 0', lineHeight: 1.4, fontFamily: 'Outfit', fontWeight: 800, letterSpacing: '-0.01em' }}>{name}</h3>
+        <h3 style={{ fontSize: compact ? '1.1rem' : '1.5rem', color: 'white', margin: '0 0 12px 0', lineHeight: 1.3, fontFamily: 'Outfit', fontWeight: 900, letterSpacing: '-0.5px', textTransform: 'capitalize' }}>{name}</h3>
         {role && (
           <span style={{ 
             display: 'inline-block',
-            padding: '5px 16px',
+            padding: '8px 20px',
             background: badgeStyles.background,
             border: badgeStyles.border,
             color: badgeStyles.color,
             borderRadius: '20px',
             fontSize: '0.75rem',
-            fontWeight: 800,
+            fontWeight: 900,
             textTransform: 'uppercase',
-            letterSpacing: '1px',
-            marginBottom: '12px'
+            letterSpacing: '1.5px',
+            marginBottom: '14px',
+            fontFamily: 'Outfit'
           }}>
             {role}
           </span>
         )}
-        {department && <p style={{ margin: 0, fontSize: '0.88rem', color: 'var(--text-muted)', fontWeight: 500, letterSpacing: '0.5px' }}>{department}</p>}
+        {department && <p style={{ margin: 0, fontSize: compact ? '0.85rem' : '0.95rem', color: 'var(--text-muted)', fontWeight: 600, letterSpacing: '0.3px', textAlign: 'center', lineHeight: 1.5 }}>{department}</p>}
       </div>
     </div>
   );
