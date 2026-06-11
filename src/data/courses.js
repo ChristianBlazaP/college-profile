@@ -1,6 +1,12 @@
 // src/data/courses.js
 // Faculty images are now Vite-bundled via the faculties asset index.
 import {
+  drErwinOrdovez,
+  gabasEvelyn,
+  reynosoRoberto,
+  buencuchilloRodita,
+  jameroFelipe,
+  villanueva,
   angloEdwin,
   amacNacho,
   alvaroFerdinand,
@@ -31,12 +37,13 @@ import {
   tobiasAriel,
   ubaldoJorge,
   villadolidRowena,
-} from "../assets/faculties/index.js";
+  mangahasJanice,
+} from "./faculties.js";
 
 export const courses = [
   {
     name: "Automotive Technology",
-    head: "DATU, JORDAN A.",
+    head: "Datu, Jordan A.",
     degree: "Bachelor of Industrial Technology Major in Automotive Technology",
     duration: "4 Years (including 500 hours Supervised Industrial Training)",
     description:
@@ -64,15 +71,14 @@ export const courses = [
       "Workshop Management and Safety Compliance"
     ],
     faculty: [
-      { name: "DATU, JORDAN A.",          img: datuJordan },
-      { name: "ANGLO, EDWIN.",             img: angloEdwin },
-      { name: "CASTILLANO, IVAN F.",       img: castillanoIvan },
-      { name: "RIVERA, SHERWIN KEITH T.",  img: riveraSherwin }
+      { name: "Datu, Jordan A.",          role: "Department Head", img: datuJordan },
+      { name: "Bernardo, Jay C.",          role: "Faculty",         img: bernardoJay },
+      { name: "Bucao, Irving E.",          role: "Faculty",         img: bucaoIrving }
     ]
   },
   {
     name: "Mechanical Technology",
-    head: "PEREZ, ELDON P.",
+    head: "Perez, Eldon P.",
     degree: "Bachelor of Industrial Technology Major in Mechanical Technology",
     duration: "4 Years (including 500 hours Supervised Industrial Training)",
     description:
@@ -100,15 +106,13 @@ export const courses = [
       "Industrial Assembly and Blueprint Interpretation"
     ],
     faculty: [
-      { name: "PEREZ, ELDON P.",     img: perezEldon },
-      { name: "BARBA, ERWIN C.",     img: barbaErwin },
-      { name: "DINEROS, DANIEL D.",  img: dinerosDaniel },
-      { name: "ORDOVEZ, DENNIS P.",  img: ordovezDennis }
+      { name: "Perez, Eldon P.",     role: "Department Head", img: perezEldon },
+      { name: "Barba, Erwin C.",     role: "Part-Time",       img: barbaErwin }
     ]
   },
   {
     name: "Electrical Technology",
-    head: "DANGLA CRUZ, ROLF IRWIN C.",
+    head: "Dangla Cruz, Rolf Irwin C.",
     degree: "Bachelor of Industrial Technology Major in Electrical Technology",
     duration: "4 Years (including 500 hours Supervised Industrial Training)",
     description:
@@ -136,15 +140,14 @@ export const courses = [
       "High-Voltage Safety and Emergency Fault Diagnosis"
     ],
     faculty: [
-      { name: "DANGLA CRUZ, ROLF IRWIN C.",                     img: danglaCruz },
-      { name: "BARBA, ERWIN C.",                                 img: barbaErwin },
-      { name: "TOBIAS, ARIEL E.",                                img: tobiasAriel },
-      { name: "ALVARO, Ferdinand P. CRUZ, ROLF IRWIN C.",        img: alvaroFerdinand }
+      { name: "Dangla Cruz, Rolf Irwin C.", role: "Department Head", img: danglaCruz },
+      { name: "Doctor III, Mario Manuel B.", role: "Faculty",         img: doctorMario },
+      { name: "Reynoso, Roberto E.",         role: "Faculty",         img: reynosoRoberto }
     ]
   },
   {
     name: "Electronics Technology",
-    head: "SANDOVAL, ALLAN A.",
+    head: "Sandoval, Allan A.",
     degree: "Bachelor of Industrial Technology Major in Electronics Technology",
     duration: "4 Years (including 500 hours Supervised Industrial Training)",
     description:
@@ -172,16 +175,16 @@ export const courses = [
       "PCB Layout Design and Precision Soldering"
     ],
     faculty: [
-      { name: "SANDOVAL, ALLAN A.",     img: sandovalAllan },
-      { name: "BERNARDO, JAY C.",       img: bernardoJay },
-      { name: "JAMERO, RICHARD K.",     img: jameroRichard },
-      { name: "NARIDO, VINCENT A.",     img: naridoVincent },
-      { name: "BAIRAN, RYAN ALEXIE L.", img: bairanRyan }
+      { name: "Sandoval, Allan A.",     role: "Department Head", img: sandovalAllan },
+      { name: "Alvaro, Ferdinand P.",   role: "Faculty",         img: alvaroFerdinand },
+      { name: "Bairan, Ryan Alexie L.", role: "Faculty",         img: bairanRyan },
+      { name: "Castillano, Ivan F.",     role: "Faculty",         img: castillanoIvan },
+      { name: "Ordovez, Erwin P.",      role: "Faculty",         img: drErwinOrdovez }
     ]
   },
   {
     name: "Drafting Technology",
-    head: "PEREZ, ELDON P.",
+    head: "Reynante T. Tonido",
     degree: "Bachelor of Industrial Technology Major in Drafting Technology",
     duration: "4 Years (including 500 hours Supervised Industrial Training)",
     description:
@@ -209,13 +212,14 @@ export const courses = [
       "Visual Rendering and Engineering File Archiving"
     ],
     faculty: [
-      { name: "PEREZ, ELDON P.",   img: perezEldon },
-      { name: "UBALDO, JORGE S.",  img: ubaldoJorge }
+      { name: "Reynante T. Tonido", role: "Department Head", img: null },
+      { name: "Alcantara, Rolito A.", role: "Part-Time",       img: null },
+      { name: "Reblando, Cynthia M.", role: "Full-Time",       img: null }
     ]
   },
   {
     name: "Computer Technology",
-    head: "TANUECO, JOSEPH ANGELO C.",
+    head: "Tanuecoz, Joseph Angelo C.",
     degree: "Bachelor of Industrial Technology Major in Computer Technology",
     duration: "4 Years (including 500 hours Supervised Industrial Training)",
     description:
@@ -243,14 +247,14 @@ export const courses = [
       "Core Threat Prevention and System Hardening"
     ],
     faculty: [
-      { name: "TANUECO, JOSEPH ANGELO C.", img: tanuecozJoseph },
-      { name: "BUCAO, IRVING E.",           img: bucaoIrving },
-      { name: "PIELAGO, MITHOS ARTH M.",    img: pielagoMithos }
+      { name: "Tanuecoz, Joseph Angelo C.", role: "Department Head", img: tanuecozJoseph },
+      { name: "Rivera, Sherwin Keith T.",   role: "Faculty",         img: riveraSherwin },
+      { name: "Ordovez, Dennis P.",         role: "Faculty",         img: ordovezDennis }
     ]
   },
   {
     name: "Industrial Chemistry",
-    head: "PERALTA, DERICK O.",
+    head: "Tobias, Ariel E.",
     degree: "Bachelor of Science in Industrial Chemistry",
     duration: "4 Years (including 500 hours Supervised Industrial Training)",
     description:
@@ -278,13 +282,14 @@ export const courses = [
       "Environmental Compliance Monitoring and Control"
     ],
     faculty: [
-      { name: "PERALTA, DERICK O.", img: peraltaDerick },
-      { name: "ANGLO, EDWIN.",       img: angloEdwin }
+      { name: "Tobias, Ariel E.",  role: "Department Head", img: tobiasAriel },
+      { name: "Gabas, Evelyn A.",  role: "Faculty",         img: gabasEvelyn },
+      { name: "Marcelo, Merelyn A.",role: "Part-Time",       img: marceloMerelyn }
     ]
   },
   {
     name: "Apparel and Fashion Technology",
-    head: "BEDIA, DESIREE JOYCE L.",
+    head: "Bedia, Desiree Joyce L.",
     degree: "Bachelor of Industrial Technology Major in Apparel & Fashion Technology",
     duration: "4 Years (including 500 hours Supervised Industrial Training)",
     description:
@@ -312,14 +317,13 @@ export const courses = [
       "Apparel Production Planning and Cost Estimation"
     ],
     faculty: [
-      { name: "BEDIA, DESIREE JOYCE L.", img: bediadesiree },
-      { name: "Dela Cruz, Sofia.",        img: delaCruzSofia },
-      { name: "VILLADOLID, ROWENA M.",    img: villadolidRowena }
+      { name: "Bedia, Desiree Joyce L.", role: "Department Head", img: bediadesiree },
+      { name: "Mangahas, Janice P.",     role: "Faculty",         img: mangahasJanice }
     ]
   },
   {
     name: "HVAC-R",
-    head: "ORDOVEZ, DENNIS P.",
+    head: "Marcelo, Luvisminda",
     degree: "Bachelor of Industrial Technology Major in HVAC-R Technology",
     duration: "4 Years (including 500 hours Supervised Industrial Training)",
     description:
@@ -347,13 +351,13 @@ export const courses = [
       "Eco-Friendly Refrigerant Handling and Regulations Compliance"
     ],
     faculty: [
-      { name: "ORDOVEZ, DENNIS P.",  img: ordovezDennis },
-      { name: "DINEROS, DANIEL D.",  img: dinerosDaniel }
+      { name: "Marcelo, Luvisminda", role: "Department Head", img: null },
+      { name: "Amac, Nacho B.",        role: "Part-Time",       img: amacNacho }
     ]
   },
   {
     name: "Food Trades",
-    head: "SAN JUAN, RHYCA MAE C.",
+    head: "San Juan, Rhyca Mae C.",
     degree: "Bachelor of Industrial Technology Major in Food Technology",
     duration: "4 Years (including 500 hours Supervised Industrial Training)",
     description:
@@ -381,15 +385,16 @@ export const courses = [
       "Professional Catering and Dining Service Coordination"
     ],
     faculty: [
-      { name: "SAN JUAN, RHYCA MAE C.",      img: sanJuanRhyca },
-      { name: "DOCTOR III, MARIO MANUEL B.", img: doctorMario },
-      { name: "MARCELO, MERELYN A.",         img: marceloMerelyn },
-      { name: "BASIA, MAUREEN D.",           img: basiMaureen }
+      { name: "San Juan, Rhyca Mae C.",      role: "Department Head", img: sanJuanRhyca },
+      { name: "Buencuchillo, Rodita M.",     role: "Faculty",         img: buencuchilloRodita },
+      { name: "Basi, Maureen D.",            role: "Faculty",         img: basiMaureen },
+      { name: "Pielago, Marivir M.",         role: "Faculty",         img: null },
+      { name: "Pielago, Mithos Arth M.",     role: "Faculty",         img: pielagoMithos }
     ]
   },
   {
     name: "General Education",
-    head: "PERALTA, DERICK O.",
+    head: "Peralta, Derick O.",
     degree: "General Education Foundations Department",
     duration: "Integrated across Core Programs",
     description:
@@ -417,11 +422,14 @@ export const courses = [
       "Intercultural Understanding and Civic Leadership"
     ],
     faculty: [
-      { name: "PERALTA, DERICK O.",   img: peraltaDerick },
-      { name: "ANGLO, EDWIN.",         img: angloEdwin },
-      { name: "Dela Cruz, Sofia.",     img: delaCruzSofia },
-      { name: "AMAC, NACHO B.",        img: amacNacho },
-      { name: "DOCTOLERO, ARNEL A.",   img: doctoleroArnel }
+      { name: "Peralta, Derick O.",   role: "Department Head", img: peraltaDerick },
+      { name: "Anglo, Edwin",         role: "Faculty",         img: angloEdwin },
+      { name: "Dela Cruz, Sofia",     role: "Faculty",         img: delaCruzSofia },
+      { name: "Dineros, Daniel D.",   role: "Faculty",         img: dinerosDaniel },
+      { name: "Jamero, Felipe K.",    role: "Faculty",         img: jameroFelipe },
+      { name: "Jamero, Richard K.",   role: "Faculty",         img: jameroRichard },
+      { name: "Villadolid, Rowena M.",role: "Faculty",         img: villadolidRowena },
+      { name: "Villanueva, Christian",role: "Faculty",         img: villanueva }
     ]
   }
 ];

@@ -1,4 +1,4 @@
-import { facilityLabsData } from "../data/facilityLabsData";
+import { facilityLabsData } from "../data/facilities";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { filterValidImages, hasValidImages } from "../utils/imageValidator";

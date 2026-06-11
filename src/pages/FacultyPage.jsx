@@ -12,18 +12,24 @@ import {
   bediadesiree,
   peraltaDerick,
   sanJuanRhyca,
-} from "../assets/faculties/index.js";
+  perezEldon,
+  tobiasAriel,
+} from "../data/faculties.js";
 
 const facultyBoard = [
-  { name: "DR. ERWIN P. ORDOVEZ",        role: "College Dean",    department: "Administration",                  image: drErwinOrdovez },
-  { name: "PROF. EVELYN A. GABAS",       role: "Associate Dean",  department: "Administration",                  image: gabasEvelyn },
-  { name: "DATU, JORDAN A.",             role: "Department Head",  department: "Automotive Technology",           image: datuJordan },
-  { name: "SANDOVAL, ALLAN A.",          role: "Department Head",  department: "Electronics Technology",          image: sandovalAllan },
-  { name: "DANGLA CRUZ, ROLF IRWIN C.",  role: "Department Head",  department: "Electrical Technology",           image: danglaCruz },
-  { name: "TANUECO, JOSEPH ANGELO C.",   role: "Department Head",  department: "Computer Technology",             image: tanuecozJoseph },
-  { name: "BEDIA, DESIREE JOYCE L.",     role: "Department Head",  department: "Apparel and Fashion Technology",  image: bediadesiree },
-  { name: "PERALTA, DERICK O.",          role: "Department Head",  department: "General Education",               image: peraltaDerick },
-  { name: "SAN JUAN, RHYCA MAE C.",      role: "Department Head",  department: "Food Trades",                     image: sanJuanRhyca },
+  { name: "DR. ERWIN P. ORDOVEZ",             role: "College Dean",      department: "Administration",                  image: drErwinOrdovez },
+  { name: "PROF. EVELYN A. GABAS",            role: "Associate Dean",    department: "Administration",                  image: gabasEvelyn },
+  { name: "Datu, Jordan A.",                  role: "Department Head",   department: "Automotive Technology",           image: datuJordan },
+  { name: "Perez, Eldon P.",                  role: "Department Head",   department: "Mechanical Technology",           image: perezEldon },
+  { name: "Reynante T. Tonido",               role: "Department Head",   department: "Drafting Technology",             image: null },
+  { name: "Sandoval, Allan A.",               role: "Department Head",   department: "Electronics Technology",          image: sandovalAllan },
+  { name: "Dangla Cruz, Rolf Irwin C.",       role: "Department Head",   department: "Electrical Technology",           image: danglaCruz },
+  { name: "Tobias, Ariel E.",                 role: "Department Head",   department: "Industrial Chemistry",            image: tobiasAriel },
+  { name: "Tanuecoz, Joseph Angelo C.",        role: "Department Head",   department: "Computer Technology",             image: tanuecozJoseph },
+  { name: "Marcelo, Luvisminda",              role: "Department Head",   department: "HVAC-R",                          image: null },
+  { name: "San Juan, Rhyca Mae C.",           role: "Department Head",   department: "Food Trades",                     image: sanJuanRhyca },
+  { name: "Bedia, Desiree Joyce L.",          role: "Department Head",   department: "Apparel and Fashion Technology",  image: bediadesiree },
+  { name: "Peralta, Derick O.",               role: "Department Head",   department: "General Education",               image: peraltaDerick },
 ];
 
 function useScrollReveal() {

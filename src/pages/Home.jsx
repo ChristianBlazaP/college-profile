@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { courses } from "../data/courses";
 import bgImage from "../assets/BG.png";
-import { automotive1, mecanical1, ichem1, computerlab1 } from "../assets/facilities/index.js";
+import { automotive1, mecanical1, ichem1, computerlab1 } from "../data/facilities.js";
 
 // Simple hook for scroll reveal animation
 function useScrollReveal() {
@@ -443,10 +443,8 @@ function Home() {
 
           <div className="grid-3">
             {courses.map((course, index) => {
-              const borderColors = ['var(--primary)', 'var(--secondary)', 'var(--tertiary)', 'var(--primary)', 'var(--secondary)', 'var(--tertiary)'];
-              const currentBorder = borderColors[index % 3];
               return (
-                <Link key={index} to={`/course/${encodeURIComponent(course.name)}`} className="glass-card reveal-on-scroll" style={{ padding: '35px', textDecoration: 'none', display: 'flex', flexDirection: 'column', height: '100%', borderTop: `4px solid ${currentBorder}` }}>
+                <Link key={index} to={`/course/${encodeURIComponent(course.name)}`} className="glass-card reveal-on-scroll" style={{ padding: '35px', textDecoration: 'none', display: 'flex', flexDirection: 'column', height: '100%', borderTop: '4px solid rgba(255, 255, 255, 0.16)' }}>
                   <h3 style={{ color: 'white', fontSize: '1.25rem', margin: '0 0 20px 0', flex: 1, lineHeight: 1.4, fontFamily: 'Outfit', fontWeight: 700 }}>{course.name}</h3>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '25px' }}>
                     {course.description.substring(0, 100)}...

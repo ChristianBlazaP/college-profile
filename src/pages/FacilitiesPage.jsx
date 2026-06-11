@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { facilityLabsData } from "../data/facilityLabsData";
+import { facilityLabsData } from "../data/facilities";
 import { useEffect, useState } from "react";
 import { filterValidImages, hasValidImages } from "../utils/imageValidator";
 
