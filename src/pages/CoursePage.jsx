@@ -68,9 +68,9 @@ function CoursePage() {
                         </div>
 
                         {/* Department Head - Full Width with Picture */}
-                        <div className="glass-panel" style={{ padding: '40px', marginBottom: '40px', borderLeft: '4px solid var(--primary)', display: 'flex', alignItems: 'center', gap: '30px' }}>
+                        <div className="glass-panel dept-head-card" style={{ padding: '40px', marginBottom: '40px', borderLeft: '4px solid var(--primary)', display: 'flex', alignItems: 'center', gap: '30px', flexWrap: 'wrap' }}>
                             <div style={{ flexShrink: 0 }}>
-                                <div className="avatar-circle" style={{ width: '140px', height: '140px', fontSize: '3rem', border: '3px solid var(--secondary)', background: 'linear-gradient(135deg, rgba(6, 15, 26, 0.95) 0%, rgba(22, 54, 99, 0.6) 100%)', boxShadow: '0 0 30px rgba(212, 175, 55, 0.25)', overflow: 'hidden' }}>
+                                <div className="avatar-circle dept-head-avatar" style={{ width: '140px', height: '140px', fontSize: '3rem', border: '3px solid var(--secondary)', background: 'linear-gradient(135deg, rgba(6, 15, 26, 0.95) 0%, rgba(22, 54, 99, 0.6) 100%)', boxShadow: '0 0 30px rgba(212, 175, 55, 0.25)', overflow: 'hidden' }}>
                                     {headImage ? (
                                         <img 
                                             src={headImage} 

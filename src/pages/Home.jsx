@@ -153,11 +153,10 @@ function Home() {
         position: 'fixed',
         top: 0,
         left: 0,
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
+        height: '100%',
         zIndex: -1,
-        background: `url(${bgImage}) center/cover no-repeat`,
-        backgroundAttachment: 'fixed'
+        background: `url(${bgImage}) center/cover no-repeat`
       }}>
         <div style={{
           position: 'absolute',
@@ -184,7 +183,7 @@ function Home() {
           backdropFilter: 'blur(8px)',
           zIndex: 0
         }}></div>
-        <div style={{ maxWidth: '950px', zIndex: 1 }} className="animate-fade-in">
+        <div style={{ maxWidth: '950px', width: '100%', zIndex: 1 }} className="animate-fade-in">
           <span className="section-badge" style={{ marginBottom: '24px' }}>Welcome to EARIST</span>
           <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', marginBottom: '24px', fontWeight: 900, lineHeight: 1.3, textAlign: 'center' }}>
             College of <br />
@@ -196,7 +195,7 @@ function Home() {
             Produce technologically competitive graduates by providing capability build-up responsive to the needs of industry. Building a better future with academic innovation, trust, and professional excellence.
           </p>
           <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="#courses" className="btn btn-primary" style={{ textDecoration: 'none' }}>Explore Programs</a>
+            <button className="btn btn-primary" onClick={() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' })}>Explore Programs</button>
             <Link to="/facilities" className="btn btn-ghost" style={{ textDecoration: 'none' }}>Tour Facilities</Link>
           </div>
         </div>
@@ -407,8 +406,8 @@ function Home() {
 
         {/* FACILITIES PREVIEW */}
         <div id="facilities" className="section-padding reveal-on-scroll" style={{ paddingTop: 0, paddingBottom: '100px' }}>
-           <div className="glass-card" style={{ display: 'flex', flexWrap: 'wrap', overflow: 'hidden', borderLeft: '4px solid var(--secondary)' }}>
-              <div style={{ flex: '1 1 400px', minHeight: '400px', display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '0', position: 'relative', overflow: 'hidden' }}>
+           <div className="glass-card facilities-preview-card" style={{ display: 'flex', flexWrap: 'wrap', overflow: 'hidden', borderLeft: '4px solid var(--secondary)' }}>
+              <div className="facilities-img-grid" style={{ flex: '1 1 300px', minHeight: '320px', display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '0', position: 'relative', overflow: 'hidden' }}>
                  <div style={{
                    position: 'absolute',
                    inset: 0,
@@ -421,10 +420,10 @@ function Home() {
                  <img src={ichem1}       alt="Chemistry Lab"   style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                  <img src={computerlab1} alt="Computer Lab"    style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
-              <div style={{ flex: '1 1 400px', padding: '60px', display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 2 }}>
+              <div className="facilities-text-block" style={{ flex: '1 1 300px', padding: '50px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 2 }}>
                  <span className="section-badge" style={{ alignSelf: 'flex-start' }}>Campus tour</span>
-                 <h2 style={{ fontSize: '2.5rem', marginBottom: '20px', color: 'white', fontWeight: 800, fontFamily: 'Outfit' }}>Explore Our Facilities</h2>
-                 <p style={{ color: 'var(--text-muted)', marginBottom: '40px', fontSize: '1.1rem', lineHeight: 1.8 }}>
+                 <h2 style={{ fontSize: '2.2rem', marginBottom: '20px', color: 'white', fontWeight: 800, fontFamily: 'Outfit' }}>Explore Our Facilities</h2>
+                 <p style={{ color: 'var(--text-muted)', marginBottom: '36px', fontSize: '1.05rem', lineHeight: 1.8 }}>
                    Explore advanced learning labs and specialized drafting centers built to provide comprehensive hands-on instruction using professional instruments.
                  </p>
                  <button onClick={() => navigate("/facilities")} className="btn btn-primary" style={{ alignSelf: 'flex-start' }}>View All Facilities</button>
@@ -483,6 +482,23 @@ function Home() {
           }
           .timeline-card {
             width: 100% !important;
+          }
+          .facilities-img-grid {
+            min-height: 260px !important;
+          }
+          .facilities-text-block {
+            padding: 32px 24px !important;
+          }
+          .facilities-text-block h2 {
+            font-size: 1.8rem !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .facilities-img-grid {
+            min-height: 220px !important;
+          }
+          .facilities-text-block {
+            padding: 28px 20px !important;
           }
         }
       `}</style>

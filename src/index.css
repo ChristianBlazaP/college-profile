@@ -858,6 +858,15 @@ em, i {
   .section-title {
     font-size: 2.2rem;
   }
+  .nav-logo h2 {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-logo h2 {
+    display: none;
+  }
 }
 
 /* Custom dashboard utility cards */
@@ -1285,41 +1294,224 @@ em, i {
   animation: colorShift 3s ease-in-out infinite;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+/* ===================================================
+   COMPREHENSIVE MOBILE RESPONSIVE STYLES
+   =================================================== */
 
-  .glass-card {
-    padding: 25px;
-  }
+/* Global overflow guard */
+html {
+  overflow-x: hidden;
+}
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── 992px – Tablet / large mobile ── */
+@media (max-width: 992px) {
+  .nav-links {
+    display: none;
+  }
+  .mobile-menu-btn {
+    display: block;
+  }
   .section-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
-
-  .glass-panel {
-    padding: 40px 30px;
+  .nav-logo h2 {
+    font-size: 0.95rem;
   }
 }
 
-@media (max-width: 480px) {
-  .glass-card {
-    padding: 20px;
+/* ── 768px – Mobile landscape / small tablet ── */
+@media (max-width: 768px) {
+  /* Prevent any fixed-width element from causing horizontal scroll */
+  * {
+    max-width: 100%;
   }
 
-  .section-title {
-    font-size: 1.6rem;
+  /* Container tighter padding */
+  .container {
+    padding: 0 20px;
   }
 
+  /* Section padding */
+  .section-padding {
+    padding: 64px 0 !important;
+  }
+
+  /* Page headers */
+  .page-header {
+    padding-top: 140px !important;
+    padding-bottom: 60px !important;
+  }
+
+  /* ── Grids ── */
+  .grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px;
+  }
+
+  /* ── Stat cards (override inline style padding & font) ── */
+  .stat-card.glass-panel {
+    padding: 28px 14px !important;
+  }
+  .stat-card h2 {
+    font-size: 2.6rem !important;
+    margin-bottom: 8px !important;
+  }
+  .stat-card p {
+    font-size: 0.68rem !important;
+    letter-spacing: 1px !important;
+  }
+
+  /* ── Glass panels – override inline padding ── */
   .glass-panel {
-    padding: 30px 20px;
+    padding: 36px 22px !important;
   }
 
-  .btn {
-    padding: 12px 24px;
+  /* ── Inner grids inside glass panels (set via inline style) ── */
+  .glass-panel > div[style*="grid-template-columns"],
+  .glass-panel > div > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* ── Section headings inside panels ── */
+  .glass-panel h2,
+  .glass-panel h3 {
+    font-size: clamp(1.4rem, 4.5vw, 2rem) !important;
+  }
+  .glass-panel h4 {
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem) !important;
+  }
+
+  /* ── Section title ── */
+  .section-title {
+    font-size: 1.9rem !important;
+  }
+
+  /* ── Hero buttons full-width ── */
+  .hero .btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* ── Navbar logo hides long title ── */
+  .nav-logo h2 {
     font-size: 0.9rem;
+  }
+
+  /* ── Footer stack ── */
+  footer > div > div:first-child {
+    flex-direction: column !important;
+    gap: 36px !important;
+  }
+
+  /* ── CoursePage: dept-head card wraps, avatar centers ── */
+  .dept-head-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .dept-head-avatar {
+    width: 100px !important;
+    height: 100px !important;
+    font-size: 2rem !important;
+  }
+
+  /* ── CoursePage: Academic Facts inline grid ── */
+  div[style*="minmax(280px"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── FacilitiesPage: main/sidebar stack ── */
+  div[style*="flex: '1 1 600px'"],
+  div[style*="flex: '1 1 300px'"] {
+    flex: 1 1 100% !important;
+  }
+
+  /* ── FacilitiesPage: Capacity/Status 2-col inner grid ── */
+  div[style*="grid-template-columns: '1fr 1fr'"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Animations: gentler on mobile ── */
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ── 640px – Hide nav logo text ── */
+@media (max-width: 640px) {
+  .nav-logo h2 {
+    display: none;
+  }
+}
+
+/* ── 480px – Small phones ── */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .section-padding {
+    padding: 48px 0 !important;
+  }
+
+  .page-header {
+    padding-top: 120px !important;
+    padding-bottom: 48px !important;
+  }
+
+  /* Buttons */
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.88rem;
+  }
+
+  /* Cards */
+  .glass-card {
+    padding: 20px !important;
+  }
+
+  /* Glass panels */
+  .glass-panel {
+    padding: 24px 16px !important;
+  }
+
+  /* Section title */
+  .section-title {
+    font-size: 1.6rem !important;
+  }
+
+  /* Stat cards */
+  .stat-card.glass-panel {
+    padding: 20px 10px !important;
+  }
+  .stat-card h2 {
+    font-size: 2.1rem !important;
+  }
+  .stat-card p {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  /* Stats grid stays 2 cols but tighter */
+  .grid-4 {
+    gap: 12px !important;
+  }
+
+  /* Facilities img grid height */
+  .facilities-img-grid {
+    min-height: 220px !important;
+  }
+  .facilities-text-block {
+    padding: 28px 20px !important;
   }
 }
